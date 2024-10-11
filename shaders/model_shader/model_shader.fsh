@@ -6,17 +6,19 @@ varying vec4 v_vColour;
 varying vec3 v_vNormal;
 uniform vec3 light_vec;
 uniform sampler2D lut_tex;
+varying float height;
 
 
 void main()
 {
-    float norm_dif=dot(v_vNormal,normalize(light_vec));
+    float norm_dif = -dot(vec3(v_vNormal.xy,-1.0 * v_vNormal.z),normalize(light_vec));
 	norm_dif = norm_dif * 0.5 +0.5;
 	norm_dif = mix(0.2,1.0,norm_dif);
 	//gl_FragColor = vec4(norm_dif, norm_dif, norm_dif, 1.0);
 	
 	vec4 final_color = vec4(1.3,1.3,1.3,1.0)* v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
-	final_color = vec4(norm_dif,norm_dif,norm_dif,1.0) * vec4(floor(final_color.r*8.0+0.5)/8.0,floor(final_color.g*8.0+0.5)/8.0,floor(final_color.b*8.0+0.5)/8.0,final_color.a);
+	//final_color = vec4(norm_dif,norm_dif,norm_dif,1.0) * vec4(floor(final_color.r*8.0+0.5)/8.0,floor(final_color.g*8.0+0.5)/8.0,floor(final_color.b*8.0+0.5)/8.0,final_color.a);
+	final_color = vec4(norm_dif,norm_dif,norm_dif,1.0) * final_color;
 	
 	vec4 textureColor = final_color;
 	
@@ -43,9 +45,11 @@ void main()
     vec4 newColor2 = texture2D(lut_tex, texPos2);
     vec4 newColor = mix(newColor1, newColor2, fract(blueColor));
 	
-	
-	gl_FragColor = newColor;
+	//gl_FragColor = v_vColour;
+	//gl_FragColor = newColor;
+	gl_FragColor = vec4(height,height,height,1.0);
 	//gl_FragColor = final_color;
 	//gl_FragColor = vec4(norm_dif,norm_dif,norm_dif,1.0);
-	//gl_FragColor = v_vColour *  vec4(v_vNormal.x,v_vNormal.y,v_vNormal.z,1.0);
+	//vec3 comp_vec = v_vNormal * 0.5 + vec3(0.5,0.5,0.5);
+	//gl_FragColor = vec4(comp_vec.x,comp_vec.y, 1.0 - comp_vec.z,1.0);
 }

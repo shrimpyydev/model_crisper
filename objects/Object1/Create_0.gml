@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+direction=45;
 vertex_format_begin();
 vertex_format_add_position_3d();
 vertex_format_add_normal();
@@ -32,6 +33,7 @@ for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
 scale=64/abs(max_y-min_y);
+hull_scale=64/abs(max_y-min_y);
 x=room_width/2;
 y=room_height/2;
 model_surf=-1;

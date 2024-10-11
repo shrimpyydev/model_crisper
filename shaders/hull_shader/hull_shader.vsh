@@ -1,0 +1,22 @@
+//
+// Simple passthrough vertex shader
+//
+attribute vec3 in_Position;                  // (x,y,z)
+attribute vec3 in_Normal;                // (x,y,z)     used for normal transformation
+
+
+
+uniform mat4 model_mat;
+uniform vec3 model_pos;
+uniform float scale;
+
+void main()
+{
+    mat3 rot_mat = mat3(model_mat);
+    vec3 object_space_pos = rot_mat * vec3(scale * in_Position.x, scale * in_Position.y, scale * in_Position.z) + model_pos;
+    vec3 new_norm = rot_mat * in_Normal;
+	object_space_pos -= vec3(new_norm.x,new_norm.y,new_norm.z);
+	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
+
+    
+}

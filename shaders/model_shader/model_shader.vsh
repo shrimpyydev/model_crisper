@@ -12,6 +12,8 @@ varying vec3 v_vNormal;
 uniform mat4 model_mat;
 uniform vec3 model_pos;
 uniform float scale;
+varying float height;
+
 
 void main()
 {
@@ -19,14 +21,15 @@ void main()
     vec3 object_space_pos = rot_mat * vec3(scale * in_Position.x, scale * in_Position.y, scale * in_Position.z) + model_pos;
     
 	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
-	if(object_space_pos.z<0.0)
+	if(object_space_pos.z>0.0)
 	{
-    v_vColour = in_Colour * vec4(0.75,0.75,0.75,1.0);
+    v_vColour = in_Colour * vec4(0.9,0.9,0.9,1.0);
 	}
 	else
 	{
 	v_vColour = in_Colour;	
 	}
     v_vTexcoord = in_TextureCoord;
-    v_vNormal = normalize(rot_mat * in_Normal);  
+    v_vNormal = normalize(rot_mat * (-1.0 * in_Normal));  
+	height = 1.0 - clamp((object_space_pos.z+24.0),0.0,48.0)/48.0;
 }
