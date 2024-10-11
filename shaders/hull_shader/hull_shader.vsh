@@ -14,8 +14,9 @@ void main()
 {
     mat3 rot_mat = mat3(model_mat);
     vec3 object_space_pos = rot_mat * vec3(scale * in_Position.x, scale * in_Position.y, scale * in_Position.z) + model_pos;
-    vec3 new_norm = rot_mat * in_Normal;
-	object_space_pos -= vec3(new_norm.x,new_norm.y,new_norm.z);
+    vec3 new_norm = normalize(rot_mat * (-1.0 * in_Normal));
+	object_space_pos += vec3(new_norm.x,new_norm.y,-new_norm.z);
+	//object_space_pos = vec3(floor(object_space_pos.x + 0.5 * sign(object_space_pos.x)),floor(object_space_pos.y + 0.5 * sign(object_space_pos.y)),floor(object_space_pos.z + 0.5 * sign(object_space_pos.z)));
 	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
 
     
