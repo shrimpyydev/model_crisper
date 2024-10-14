@@ -28,6 +28,7 @@
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"gg.vbuff","CopyToMask":-1,"filePath":"datafiles","name":"gg.vbuff","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"new_gg.vbuff","CopyToMask":-1,"filePath":"datafiles","name":"new_gg.vbuff","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],

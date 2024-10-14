@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-direction=45;
+//direction=45;
 vertex_format_begin();
 vertex_format_add_position_3d();
 vertex_format_add_normal();
@@ -9,14 +9,15 @@ vertex_format_add_colour();
 
 buff_form = vertex_format_end();
 
-var buff_buff=buffer_load("gg.vbuff");
+var buff_buff=buffer_load("new_gg.vbuff");
 min_y=0;
 max_y=0;
 min_x=0;
 max_x=0;
 min_z=0;
 max_z=0;
-
+//vert_shift=matrix_build(0,0,0,0,0,0,1,1,1);
+//norm_fix=matrix_multiply(matrix_build(0,0,0,0,0,0,-1,-1,-1),matrix_build(0,0,0,0,0,0,1,1,1));
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
     var xx = buffer_peek(buff_buff, i + 0, buffer_f32);
     var yy = buffer_peek(buff_buff, i + 4, buffer_f32);
@@ -27,9 +28,21 @@ for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
 	max_y=max(max_y,yy);
 	min_z=min(zz,min_z);
 	max_z=max(zz,max_z);
-
-    
+/*
+new_pos=matrix_transform_vertex(vert_shift,xx,yy,zz);
+new_norms=matrix_transform_vertex(norm_fix,buffer_peek(buff_buff, i + 12, buffer_f32),buffer_peek(buff_buff, i + 16, buffer_f32),buffer_peek(buff_buff, i + 20, buffer_f32));
+buffer_poke(buff_buff,i+0,buffer_f32,new_pos[0]);    
+buffer_poke(buff_buff,i+4,buffer_f32,new_pos[1]);    
+buffer_poke(buff_buff,i+8,buffer_f32,new_pos[2]);  
+buffer_poke(buff_buff,i+12,buffer_f32,new_norms[0]);    
+buffer_poke(buff_buff,i+16,buffer_f32,new_norms[1]);
+buffer_poke(buff_buff,i+20,buffer_f32,new_norms[2]);    
+*/
 }
+//buffer_save(buff_buff,"new_gg.vbuff");
+
+
+
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
 scale=64/abs(max_y-min_y);

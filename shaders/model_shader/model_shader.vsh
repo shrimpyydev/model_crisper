@@ -23,13 +23,15 @@ void main()
 	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
 	if(object_space_pos.z>0.0)
 	{
-    v_vColour = in_Colour * vec4(0.9,0.9,0.9,1.0);
+    v_vColour = in_Colour * vec4(0.75,0.75,0.75,1.0);
 	}
 	else
 	{
 	v_vColour = in_Colour;	
 	}
     v_vTexcoord = in_TextureCoord;
-    v_vNormal = normalize(rot_mat * (-1.0 * in_Normal));  
+    v_vNormal = normalize(rot_mat * in_Normal) ;  
+	v_vNormal.z = -1.0*v_vNormal.z;
+	//v_vNormal = in_Normal;
 	height = 1.0 - clamp((object_space_pos.z+24.0),0.0,48.0)/48.0;
 }

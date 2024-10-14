@@ -11,9 +11,9 @@ varying float height;
 
 void main()
 {
-    float norm_dif = -dot(vec3(v_vNormal.xy,v_vNormal.z),normalize(light_vec));
+    float norm_dif = -dot(vec3(v_vNormal),normalize(light_vec));
 	norm_dif = norm_dif * 0.5 +0.5;
-	//norm_dif = mix(0.0,1.0,norm_dif);
+	norm_dif = mix(0.0,1.0,norm_dif);
 	//gl_FragColor = vec4(norm_dif, norm_dif, norm_dif, 1.0);
 	
 	vec4 final_color = vec4(1.3,1.3,1.3,1.0)* v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
@@ -51,6 +51,6 @@ void main()
 	//gl_FragColor = final_color;
 	//gl_FragColor = vec4(norm_dif,norm_dif,norm_dif,1.0);
 	//vec3 comp_vec = v_vNormal * 0.5 + vec3(0.5,0.5,0.5);
-	//gl_FragColor = vec4(comp_vec.x,comp_vec.y, 1.0 - comp_vec.z,1.0);
+	//gl_FragColor = vec4(comp_vec.x,comp_vec.y, comp_vec.z,1.0);
 	//gl_FragColor = vec4(v_vTexcoord.x,v_vTexcoord.y,0.0,1.0);
 }
