@@ -31,7 +31,7 @@ void main()
 	}
     v_vTexcoord = in_TextureCoord;
     v_vNormal = normalize(rot_mat * in_Normal) ;  
-	v_vNormal.z = -1.0*v_vNormal.z;
+	//v_vNormal.z = -1.0*v_vNormal.z;
 	//v_vNormal = in_Normal;
 	height = 1.0 - clamp((object_space_pos.z+24.0),0.0,48.0)/48.0;
 }
