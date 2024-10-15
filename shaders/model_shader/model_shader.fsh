@@ -7,7 +7,30 @@ varying vec3 v_vNormal;
 uniform vec3 light_vec;
 uniform sampler2D lut_tex;
 varying float height;
+vec3 hsv(vec3 c)
+{
+    // Near-zero epsilon (to avoid division by 0.0)
+    #define E 1e-7
 
+    // Channel shift vector
+    const vec4 S = vec4(0, -1, 2, -3) / 3.0;
+    // Sort green-blue channels (highest to lowest)
+    vec4 P = (c.b < c.g) ? vec4(c.gb, S.rg) : vec4(c.bg, S.wz);
+    // Sort red-green-blue channels (highest to lowest)
+    vec4 Q = (P.r < c.r) ? vec4(c.r, P.gbr) : vec4(P.rga, c.r);
+    // Find the difference between the highest and lowest RGB for saturation
+    float D = Q.x - min(Q.w, Q.y);
+    // Put it all together
+    return vec3(abs(Q.z + (Q.w - Q.y) / (6.0 * D + E)), D / (Q.x + E), Q.x);
+}
+
+vec3 rgbc(float h, float s, float v)
+{
+    // Compute RGB hue
+    vec3 RGB = clamp(abs(mod(h * 6.0 + vec3(0, 4, 2), 6.0) - 3.0) - 1.0, 0.0, 1.0);
+    // Multiply by value and mix for saturation
+    return v * mix(vec3(1.0), RGB, s);
+}
 
 void main()
 {
@@ -16,11 +39,15 @@ void main()
 	norm_dif = mix(0.2,1.0,norm_dif);
 	//gl_FragColor = vec4(norm_dif, norm_dif, norm_dif, 1.0);
 	
-	vec4 final_color = vec4(1.3,1.3,1.3,1.0)* v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
-	//final_color = vec4(norm_dif,norm_dif,norm_dif,1.0) * vec4(floor(final_color.r*8.0+0.5)/8.0,floor(final_color.g*8.0+0.5)/8.0,floor(final_color.b*8.0+0.5)/8.0,final_color.a);
-	final_color = vec4(norm_dif,norm_dif,norm_dif,1.0) * final_color;
+	//vec4 final_color = vec4(1.3,1.3,1.3,1.0)* v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
+	//final_color = vec4(norm_dif,norm_dif,norm_dif,1.0) * final_color;
+	float alpha = texture2D( gm_BaseTexture, v_vTexcoord ).a;
 	
-	vec4 textureColor = final_color;
+	vec3 final_color = hsv(texture2D( gm_BaseTexture, v_vTexcoord ).rgb);
+	
+	
+	
+	vec4 textureColor = vec4(rgbc(final_color.x, final_color.y, 1.1 * final_color.z * (v_vColour.r*norm_dif)), alpha);
 	
 	float Alpha = textureColor.a;
     float blueColor = textureColor.b * 63.0;
@@ -48,7 +75,7 @@ void main()
 	//gl_FragColor = v_vColour;
 	gl_FragColor = newColor;
 	//gl_FragColor = vec4(height,height,height,1.0);
-	//gl_FragColor = final_color;
+	//gl_FragColor = vec4(rgbc(final_color.x, final_color.y, 1.1 * final_color.z * ((v_vColour.r+norm_dif)/2.0)), alpha);
 	//gl_FragColor = vec4(norm_dif,norm_dif,norm_dif,1.0);
 	//vec3 comp_vec = v_vNormal * 0.5 + vec3(0.5,0.5,0.5);
 	//gl_FragColor = vec4(comp_vec.x,comp_vec.y, comp_vec.z,1.0);

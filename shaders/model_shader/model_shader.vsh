@@ -13,17 +13,19 @@ uniform mat4 model_mat;
 uniform vec3 model_pos;
 uniform float scale;
 varying float height;
-
+uniform float max_z;
 
 void main()
 {
     mat3 rot_mat = mat3(model_mat);
     vec3 object_space_pos = rot_mat * vec3(scale * in_Position.x, scale * in_Position.y, scale * in_Position.z) + model_pos;
-    
+    //object_space_pos = vec3(floor(object_space_pos.x+0.5),floor(object_space_pos.y+0.5),floor(object_space_pos.z+0.5));
+	
 	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
+	float back_shade = mix(0.75,1.0,clamp(object_space_pos.z,0.0,max_z)/max_z);
 	if(object_space_pos.z>0.0)
 	{
-    v_vColour = in_Colour * vec4(0.75,0.75,0.75,1.0);
+    v_vColour = in_Colour * vec4(back_shade,back_shade,back_shade,1.0);
 	}
 	else
 	{
