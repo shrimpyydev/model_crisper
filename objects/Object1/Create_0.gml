@@ -42,10 +42,10 @@ buffer_poke(buff_buff,i+20,buffer_f32,new_norms[2]);
 //buffer_save(buff_buff,"new_gg.vbuff");
 
 
-
+direction=45
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
-scale=64/abs(max_y-min_y);
+scale=128/abs(max_y-min_y);
 hull_scale=64/abs(max_y-min_y);
 x=room_width/2;
 y=room_height/2;
@@ -54,7 +54,7 @@ model_mat=matrix_build(x,y,0,0,0,0,1,1,1);
 surf_scale=4;
 surf_x=(room_width-128*surf_scale)/2;
 surf_y=(room_height-128*surf_scale)/2;
-window_set_fullscreen(1);
+//window_set_fullscreen(1);
 midpoint_x=room_width/2;
 midpoint_y=surf_y+128*surf_scale-(24*surf_scale);
 vec_x=0;

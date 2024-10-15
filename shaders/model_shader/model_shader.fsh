@@ -13,7 +13,7 @@ void main()
 {
     float norm_dif = -dot(vec3(v_vNormal),normalize(light_vec));
 	norm_dif = norm_dif * 0.5 +0.5;
-	norm_dif = mix(0.0,1.0,norm_dif);
+	norm_dif = mix(0.2,1.0,norm_dif);
 	//gl_FragColor = vec4(norm_dif, norm_dif, norm_dif, 1.0);
 	
 	vec4 final_color = vec4(1.3,1.3,1.3,1.0)* v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
