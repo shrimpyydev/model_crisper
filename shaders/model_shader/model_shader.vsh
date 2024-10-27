@@ -22,18 +22,18 @@ void main()
     //object_space_pos = vec3(floor(object_space_pos.x+0.5),floor(object_space_pos.y+0.5),floor(object_space_pos.z+0.5));
 	
 	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
-	float back_shade = mix(0.75,1.0,clamp(object_space_pos.z,0.0,max_z)/max_z);
+	float back_shade = mix(0.75,1.0,clamp(object_space_pos.z,0.0,max_z*0.5)/(max_z*0.5));
 	if(object_space_pos.z>0.0)
 	{
-    v_vColour = in_Colour * vec4(back_shade,back_shade,back_shade,1.0);
+    v_vColour = vec4(1.0,1.0,1.0,1.0) * vec4(back_shade,back_shade,back_shade,1.0);
 	}
 	else
 	{
-	v_vColour = in_Colour;	
+	v_vColour = vec4(1.0,1.0,1.0,1.0);	
 	}
     v_vTexcoord = in_TextureCoord;
-    v_vNormal = normalize(rot_mat * in_Normal) ;  
+    v_vNormal = normalize(rot_mat *in_Normal);  
 	//v_vNormal.z = -1.0*v_vNormal.z;
 	//v_vNormal = in_Normal;
-	height = 1.0 - clamp((object_space_pos.z+24.0),0.0,48.0)/48.0;
+	//height = 1.0 - clamp((object_space_pos.z+24.0),0.0,48.0)/48.0;
 }

@@ -13,4 +13,4 @@ var dis=min(256,point_distance(midpoint_x,midpoint_y,mouse_x,mouse_y));
 vec_x=lengthdir_x(-dis,dir);
 vec_y=lengthdir_y(-dis,dir);
 
-vec_z=48+sqrt(sqr(256)-sqr(dis));
+vec_z=32+sqrt(sqr(256)-sqr(dis));

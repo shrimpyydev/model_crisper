@@ -9,25 +9,33 @@ vertex_format_add_colour();
 
 buff_form = vertex_format_end();
 
-var buff_buff=buffer_load("new_gg.vbuff");
-min_y=0;
-max_y=0;
-min_x=0;
-max_x=0;
-min_z=0;
-max_z=0;
+var buff_buff=buffer_load("s_buff1.vbuff");
+
 //vert_shift=matrix_build(0,0,0,0,0,0,1,1,1);
 //norm_fix=matrix_multiply(matrix_build(0,0,0,0,0,0,-1,-1,-1),matrix_build(0,0,0,0,0,0,1,1,1));
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
     var xx = buffer_peek(buff_buff, i + 0, buffer_f32);
     var yy = buffer_peek(buff_buff, i + 4, buffer_f32);
     var zz = buffer_peek(buff_buff, i + 8, buffer_f32);
+	if(i=0)
+	{
+	min_y=yy;
+max_y=yy;
+min_x=xx;
+max_x=xx;
+min_z=zz;
+max_z=zz;	
+		
+	}
+	else
+	{
 	min_x=min(min_x,xx);
 	max_x=max(max_x,xx);
 	min_y=min(min_y,yy);
 	max_y=max(max_y,yy);
 	min_z=min(zz,min_z);
 	max_z=max(zz,max_z);
+	}
 /*
 new_pos=matrix_transform_vertex(vert_shift,xx,yy,zz);
 new_norms=matrix_transform_vertex(norm_fix,buffer_peek(buff_buff, i + 12, buffer_f32),buffer_peek(buff_buff, i + 16, buffer_f32),buffer_peek(buff_buff, i + 20, buffer_f32));
@@ -42,17 +50,17 @@ buffer_poke(buff_buff,i+20,buffer_f32,new_norms[2]);
 //buffer_save(buff_buff,"new_gg.vbuff");
 
 
-direction=45
+direction=315;
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
-height=128;
+height=96;
 scale=height/abs(max_y-min_y);
 hull_scale=130/abs(max_y-min_y);
 x=room_width/2;
 y=room_height/2;
 model_surf=-1;
 model_mat=matrix_build(x,y,0,0,0,0,1,1,1);
-surf_scale=5;
+surf_scale=4;
 surf_x=(room_width-128*surf_scale)/2;
 surf_y=(room_height-128*surf_scale)/2;
 //window_set_fullscreen(1);
