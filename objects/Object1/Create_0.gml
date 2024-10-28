@@ -50,17 +50,17 @@ buffer_poke(buff_buff,i+20,buffer_f32,new_norms[2]);
 //buffer_save(buff_buff,"new_gg.vbuff");
 
 
-direction=315;
+direction=270;
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
-height=96;
+height=64;
 scale=height/abs(max_y-min_y);
 hull_scale=130/abs(max_y-min_y);
 x=room_width/2;
 y=room_height/2;
 model_surf=-1;
 model_mat=matrix_build(x,y,0,0,0,0,1,1,1);
-surf_scale=4;
+surf_scale=5;
 surf_x=(room_width-128*surf_scale)/2;
 surf_y=(room_height-128*surf_scale)/2;
 //window_set_fullscreen(1);
