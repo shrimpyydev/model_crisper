@@ -1,4 +1,4 @@
-# Blender 4.0.2 MTL File: 'shrimpyy3.blend'
+# Blender 4.0.2 MTL File: 'shrimpyy4.blend'
 # www.blender.org
 
 newmtl material_atlas_00001_1
@@ -8,5 +8,5 @@ Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 illum 2
-map_Kd C:/Atlas_00001.png
-map_d C:/Atlas_00001.png
+map_Kd C:/baked_tex_fulres.png
+map_d C:/baked_tex_fulres.png

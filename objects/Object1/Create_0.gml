@@ -50,10 +50,10 @@ buffer_poke(buff_buff,i+20,buffer_f32,new_norms[2]);
 //buffer_save(buff_buff,"new_gg.vbuff");
 
 
-direction=270;
+direction=315;
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
-height=64;
+height=96;
 scale=height/abs(max_y-min_y);
 hull_scale=130/abs(max_y-min_y);
 x=room_width/2;

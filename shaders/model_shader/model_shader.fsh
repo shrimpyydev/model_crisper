@@ -72,7 +72,7 @@ void main()
     vec4 newColor1 = texture2D(lut_tex, texPos1);
     vec4 newColor2 = texture2D(lut_tex, texPos2);
     vec4 newColor = mix(newColor1, newColor2, fract(blueColor));
-	vec4 pos_color = vec4(rgbc(final_color.x, final_color.y, final_color.z * ((v_vColour.r+norm_dif)/2.0)), alpha);
+	vec4 pos_color = vec4(textureColor.x, textureColor.y, textureColor.z * ((v_vColour.r+norm_dif)/2.0), alpha);
 	float pos_amount = 10.0;
 	pos_color = vec4(floor(pos_color.r * pos_amount +0.5)/pos_amount,floor(pos_color.g * pos_amount +0.5)/pos_amount,floor(pos_color.b * pos_amount +0.5)/pos_amount,pos_color.a);
 	
@@ -83,7 +83,7 @@ void main()
 	//gl_FragColor = vec4(height,height,height,1.0);
 	if(v_vNormal.z<0.0)
 	{
-	gl_FragColor = pos_color;
+	gl_FragColor = textureColor;
 	//gl_FragColor = vec4(v_vTexcoord.x,v_vTexcoord.y,0.0,1.0);
 	}
 	else

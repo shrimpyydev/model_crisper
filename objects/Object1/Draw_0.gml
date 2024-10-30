@@ -9,7 +9,7 @@ draw_clear_alpha(c_white,0);
 
 shader_set(model_shader);
 //shader_set_uniform_f_array(shader_get_uniform(model_shader,"light_vec"),[vec_x,vec_y,vec_z]);
-shader_set_uniform_f_array(shader_get_uniform(model_shader,"light_vec"),[0,1.25,2.5]);
+shader_set_uniform_f_array(shader_get_uniform(model_shader,"light_vec"),[-0.75,1.25,2.5]);
 
 
 shader_set_uniform_f_array(shader_get_uniform(model_shader,"model_mat"),model_mat);
