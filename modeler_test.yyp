@@ -31,6 +31,7 @@
     {"$GMIncludedFile":"","%Name":"new_gg.vbuff","CopyToMask":-1,"filePath":"datafiles","name":"new_gg.vbuff","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"s_buff.vbuff","CopyToMask":-1,"filePath":"datafiles","name":"s_buff.vbuff","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"s_buff1.vbuff","CopyToMask":-1,"filePath":"datafiles","name":"s_buff1.vbuff","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"s_buff2.vbuff","CopyToMask":-1,"filePath":"datafiles","name":"s_buff2.vbuff","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],

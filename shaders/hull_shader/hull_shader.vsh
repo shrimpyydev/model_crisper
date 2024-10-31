@@ -17,7 +17,7 @@ void main()
     
 	vec3 new_norm = normalize(rot_mat * in_Normal);
 	v_vNormal = new_norm;
-	object_space_pos += vec3(new_norm.x,new_norm.y,new_norm.z);
+	object_space_pos += 1.15 * vec3(new_norm.x,new_norm.y,new_norm.z);
 	//object_space_pos += vec3(sign(new_norm.x),sign(new_norm.y),sign(new_norm.z));
 	//object_space_pos = vec3(floor(object_space_pos.x + 0.5 * sign(object_space_pos.x)),floor(object_space_pos.y + 0.5 * sign(object_space_pos.y)),floor(object_space_pos.z + 0.5 * sign(object_space_pos.z)));
 	gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
