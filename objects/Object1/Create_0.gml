@@ -9,7 +9,7 @@ vertex_format_add_colour();
 
 buff_form = vertex_format_end();
 
-var buff_buff=buffer_load("s_buff1.vbuff");
+var buff_buff=buffer_load("shrimpyy8.vbuff");
 
 //vert_shift=matrix_build(0,0,0,0,0,0,1,1,1);
 //norm_fix=matrix_multiply(matrix_build(0,0,0,0,0,0,-1,-1,-1),matrix_build(0,0,0,0,0,0,1,1,1));

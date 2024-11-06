@@ -80,7 +80,7 @@ void main()
 	//gl_FragColor = textureColor;
 	//gl_FragColor = mix(textureColor,newColor,0.333);
 	//gl_FragColor = vec4(height,height,height,1.0);
-
+	//gl_FragColor = pos_color;
 	gl_FragColor = newColor;
 	//gl_FragColor = vec4(v_vTexcoord.x,v_vTexcoord.y,0.0,1.0);
 

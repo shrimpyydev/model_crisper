@@ -23,9 +23,9 @@ gpu_set_cullmode(cull_noculling);
 vertex_submit(model,pr_trianglelist,sprite_get_texture(sprite_index,0));
 shader_reset();
 
-
-//gpu_set_cullmode(cull_counterclockwise);
 /*
+gpu_set_cullmode(cull_counterclockwise);
+
 shader_set(hull_shader);
 shader_set_uniform_f_array(shader_get_uniform(hull_shader,"model_mat"),model_mat);
 shader_set_uniform_f_array(shader_get_uniform(hull_shader,"model_pos"),[surface_get_width(model_surf)/2,surface_get_height(model_surf)-max_y*scale,0]);
@@ -37,19 +37,20 @@ shader_set_uniform_f(shader_get_uniform(hull_shader,"scale"),scale);
 
 vertex_submit(model,pr_trianglelist,sprite_get_texture(sprite_index,0));
 shader_reset();
+
 */
-
 surface_reset_target();
-
+/*
 
 shader_set(outline);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale+1*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale-1*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale+1*surf_scale,surf_scale,surf_scale,0,c_white,1);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale-1*surf_scale,surf_scale,surf_scale,0,c_white,1);
-
+*/
 
 shader_reset();
+
 
 
 
