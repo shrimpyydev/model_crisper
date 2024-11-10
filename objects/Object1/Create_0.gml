@@ -9,7 +9,7 @@ vertex_format_add_colour();
 
 buff_form = vertex_format_end();
 
-var buff_buff=buffer_load("shrimpyy8.vbuff");
+var buff_buff=buffer_load("HDobj.vbuff");
 
 //vert_shift=matrix_build(0,0,0,0,0,0,1,1,1);
 //norm_fix=matrix_multiply(matrix_build(0,0,0,0,0,0,-1,-1,-1),matrix_build(0,0,0,0,0,0,1,1,1));
@@ -50,7 +50,7 @@ buffer_poke(buff_buff,i+20,buffer_f32,new_norms[2]);
 //buffer_save(buff_buff,"new_gg.vbuff");
 
 
-direction=315;
+direction=0;
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
 height=128;

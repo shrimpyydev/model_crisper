@@ -3,5 +3,5 @@
 if(!surface_exists(model_surf))
 {
 model_surf=surface_create(128,128);	
-	
+//model_surf=surface_create(256,256);	
 }

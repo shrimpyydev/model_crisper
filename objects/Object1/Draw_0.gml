@@ -22,8 +22,8 @@ texture_set_stage(shader_get_sampler_index(model_shader,"lut_tex"), sprite_get_t
 gpu_set_cullmode(cull_noculling);
 vertex_submit(model,pr_trianglelist,sprite_get_texture(sprite_index,0));
 shader_reset();
-
 /*
+
 gpu_set_cullmode(cull_counterclockwise);
 
 shader_set(hull_shader);
@@ -40,17 +40,17 @@ shader_reset();
 
 */
 surface_reset_target();
-/*
 
+/*
 shader_set(outline);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale+1*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale-1*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale+1*surf_scale,surf_scale,surf_scale,0,c_white,1);
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale-1*surf_scale,surf_scale,surf_scale,0,c_white,1);
-*/
+
 
 shader_reset();
-
+*/
 
 
 
