@@ -78,16 +78,16 @@ void main()
 	
 	//gl_FragColor = v_vColour;
 	//gl_FragColor = newColor;
-	//gl_FragColor = textureColor;
+	gl_FragColor = textureColor;
 	//gl_FragColor = mix(textureColor,newColor,0.333);
 	//gl_FragColor = vec4(height,height,height,1.0);
 	//gl_FragColor = pos_color;
-	gl_FragColor = newColor;
+	//gl_FragColor = newColor;
 	//gl_FragColor = vec4(v_vTexcoord.x,v_vTexcoord.y,0.0,1.0);
 
 	//gl_FragColor = vec4(norm_dif,norm_dif,norm_dif,1.0);
 	//vec3 comp_vec = v_vNormal * 0.5 + vec3(0.5,0.5,0.5);
 	//gl_FragColor = vec4(comp_vec.x,comp_vec.y, comp_vec.z,1.0);
-	//float shade = floor(16.0*v_vColour.r*norm_dif+0.5)/16.0;
+	//float shade = floor(10.0*v_vColour.r*norm_dif+0.5)/10.0;
 	//gl_FragColor = texture2D( gm_BaseTexture, v_vTexcoord ) *vec4(shade,shade,shade,alpha);
 }
