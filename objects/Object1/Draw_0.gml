@@ -1,10 +1,27 @@
 /// @description Insert description here
 // You can write your code in this editor
+
 gpu_set_ztestenable(1);
 gpu_set_zwriteenable(1);
 
 surface_set_target(model_surf);
 draw_clear_alpha(c_white,0);
+surface_reset_target();
+surface_set_target(tex_surf);
+draw_clear_alpha(c_white,0);
+surface_reset_target();
+surface_set_target(norm_surf);
+draw_clear_alpha(c_white,0);
+surface_reset_target();
+surface_set_target(height_surf);
+draw_clear_alpha(c_white,0);
+surface_reset_target();
+
+
+surface_set_target_ext(0,model_surf);
+surface_set_target_ext(1,tex_surf);
+surface_set_target_ext(2,norm_surf);
+surface_set_target_ext(3,height_surf);
 
 
 shader_set(model_shader);
@@ -13,7 +30,7 @@ shader_set(model_shader);
 shader_set_uniform_f_array(shader_get_uniform(model_shader,"light_vec"),[0,1,1]);
 
 shader_set_uniform_f_array(shader_get_uniform(model_shader,"model_mat"),model_mat);
-shader_set_uniform_f_array(shader_get_uniform(model_shader,"model_pos"),[surface_get_width(model_surf)/2,surface_get_height(model_surf)-max_y*scale,0]);
+shader_set_uniform_f_array(shader_get_uniform(model_shader,"model_pos"),[surface_get_width(model_surf)/2,surface_get_height(model_surf)-max_y*scale-1,0]);
 shader_set_uniform_f(shader_get_uniform(model_shader,"scale"),scale);
 shader_set_uniform_f(shader_get_uniform(model_shader,"max_z"),height);
 
@@ -22,36 +39,12 @@ texture_set_stage(shader_get_sampler_index(model_shader,"lut_tex"), sprite_get_t
 gpu_set_cullmode(cull_noculling);
 vertex_submit(model,pr_trianglelist,sprite_get_texture(sprite_index,0));
 shader_reset();
-/*
 
-gpu_set_cullmode(cull_counterclockwise);
-
-shader_set(hull_shader);
-shader_set_uniform_f_array(shader_get_uniform(hull_shader,"model_mat"),model_mat);
-shader_set_uniform_f_array(shader_get_uniform(hull_shader,"model_pos"),[surface_get_width(model_surf)/2,surface_get_height(model_surf)-max_y*scale,0]);
-shader_set_uniform_f(shader_get_uniform(hull_shader,"scale"),scale);
-
-
-
-
-
-vertex_submit(model,pr_trianglelist,sprite_get_texture(sprite_index,0));
-shader_reset();
-
-*/
 surface_reset_target();
-
-/*
-shader_set(outline);
-draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale+1*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
-draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale-1*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
-draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale+1*surf_scale,surf_scale,surf_scale,0,c_white,1);
-draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale-1*surf_scale,surf_scale,surf_scale,0,c_white,1);
-
-
-shader_reset();
-*/
 
 
 
 draw_surface_ext(model_surf,surf_x-surface_get_width(model_surf)/2*surf_scale,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
+draw_surface_ext(tex_surf,room_width/2-146-73,room_height*0.75,1,1,0,c_white,1);
+draw_surface_ext(norm_surf,room_width/2-73,room_height*0.75,1,1,0,c_white,1);
+draw_surface_ext(height_surf,room_width/2+146-73,room_height*0.75,1,1,0,c_white,1);

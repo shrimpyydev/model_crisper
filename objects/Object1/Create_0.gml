@@ -11,8 +11,6 @@ buff_form = vertex_format_end();
 
 var buff_buff=buffer_load("HDobj.vbuff");
 
-//vert_shift=matrix_build(0,0,0,0,0,0,1,1,1);
-//norm_fix=matrix_multiply(matrix_build(0,0,0,0,0,0,-1,-1,-1),matrix_build(0,0,0,0,0,0,1,1,1));
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
     var xx = buffer_peek(buff_buff, i + 0, buffer_f32);
     var yy = buffer_peek(buff_buff, i + 4, buffer_f32);
@@ -36,37 +34,34 @@ max_z=zz;
 	min_z=min(zz,min_z);
 	max_z=max(zz,max_z);
 	}
-/*
-new_pos=matrix_transform_vertex(vert_shift,xx,yy,zz);
-new_norms=matrix_transform_vertex(norm_fix,buffer_peek(buff_buff, i + 12, buffer_f32),buffer_peek(buff_buff, i + 16, buffer_f32),buffer_peek(buff_buff, i + 20, buffer_f32));
-buffer_poke(buff_buff,i+0,buffer_f32,new_pos[0]);    
-buffer_poke(buff_buff,i+4,buffer_f32,new_pos[1]);    
-buffer_poke(buff_buff,i+8,buffer_f32,new_pos[2]);  
-buffer_poke(buff_buff,i+12,buffer_f32,new_norms[0]);    
-buffer_poke(buff_buff,i+16,buffer_f32,new_norms[1]);
-buffer_poke(buff_buff,i+20,buffer_f32,new_norms[2]);    
-*/
+
 }
-//buffer_save(buff_buff,"new_gg.vbuff");
+
 
 
 direction=0;
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
-height=128;
+height=144;
 scale=height/abs(max_y-min_y);
-hull_scale=130/abs(max_y-min_y);
+true_max_x=scale*max(abs(min_x),abs(max_x));
+true_max_z=scale*max(abs(min_z),abs(max_z));
+bbox_hyp=point_distance(x,y,true_max_x/2,true_max_z/2);
 x=room_width/2;
 y=room_height/2;
 model_surf=-1;
+tex_surf=-1;
+norm_surf=-1;
+height_surf=-1;
+
 model_mat=matrix_build(x,y,0,0,0,0,1,1,1);
 surf_scale=3;
-surf_x=(room_width-surface_get_width(model_surf)*surf_scale)/2;
-surf_y=(room_height-surface_get_height(model_surf)*surf_scale)/2;
-//window_set_fullscreen(1);
-midpoint_x=room_width/2;
-midpoint_y=room_height/2;
+surf_x=(room_width-146*surf_scale)/2;
+surf_y=(room_height-146*surf_scale)/2;
+;
+midpoint_x=x;
+midpoint_y=y;
 vec_x=0;
 vec_y=0;
 vec_z=1;
-room_hyp=point_distance(room_width/2,room_height/2,0,0);
+
