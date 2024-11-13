@@ -44,7 +44,7 @@ void main()
 	//vec4 final_color = vec4(1.3,1.3,1.3,1.0)* v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
 	//final_color = vec4(norm_dif,norm_dif,norm_dif,1.0) * final_color;
 	float alpha = texture2D( gm_BaseTexture, v_vTexcoord ).a;
-	
+	//vec2 rounded_tex = vec2(floor(v_vTexcoord.x*1024.0+0.5)/1024.0,floor(v_vTexcoord.y*1024.0+0.5)/1024.0);
 	vec3 final_color = hsv(texture2D( gm_BaseTexture, v_vTexcoord ).rgb);
 	
 	

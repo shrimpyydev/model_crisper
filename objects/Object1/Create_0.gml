@@ -39,7 +39,7 @@ max_z=zz;
 
 
 
-direction=0;
+//direction=315;
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
 height=144;

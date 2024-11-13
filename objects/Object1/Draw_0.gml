@@ -5,7 +5,7 @@ gpu_set_ztestenable(1);
 gpu_set_zwriteenable(1);
 
 surface_set_target(model_surf);
-draw_clear_alpha(c_white,1);
+draw_clear_alpha(c_white,0);
 surface_reset_target();
 surface_set_target(tex_surf);
 draw_clear_alpha(c_white,0);
@@ -52,7 +52,7 @@ draw_surface_ext(model_surf,room_width/2-surf_width*surf_scale/2,surf_y-surface_
 
 surface_set_target(outline_surf);
 shader_set(outline_complex);
-texture_set_stage(shader_get_sampler_index(outline_complex,"height_map"),surface_get_texture(height_surf));
+//texture_set_stage(shader_get_sampler_index(outline_complex,"height_map"),surface_get_texture(height_surf));
 shader_set_uniform_f_array(shader_get_uniform(outline_complex,"texels"),[1/surf_width,1/surf_height]);
 draw_surface(height_surf,0,0);
 shader_reset();
@@ -74,8 +74,8 @@ shader_reset();
 i+=surf_width;
 draw_surface_ext(outline_surf,start_point+i,room_height*0.75,1,1,0,c_white,1);
 
-draw_surface_ext(outline_surf,room_width/2-surf_width*surf_scale/2,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
+//draw_surface_ext(outline_surf,room_width/2-surf_width*surf_scale/2,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
 
 
 
-draw_line_color(room_width/2,0,room_width/2,room_height,c_black,c_black);
+//draw_line_color(room_width/2,0,room_width/2,room_height,c_black,c_black);
