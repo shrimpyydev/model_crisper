@@ -23,23 +23,23 @@ void main()
         
 		vec4 right_texel = texture2D(gm_BaseTexture, vec2(v_vTexcoord.x + texels.x, v_vTexcoord.y));
         vec4 left_texel = texture2D(gm_BaseTexture, vec2(v_vTexcoord.x - texels.x, v_vTexcoord.y));
-        vec4 up_texel = texture2D(gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y + texels.y));
-        vec4 down_texel = texture2D(gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y - texels.y));
+        vec4 up_texel = texture2D(gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y - texels.y));
+        vec4 down_texel = texture2D(gm_BaseTexture, vec2(v_vTexcoord.x, v_vTexcoord.y + texels.y));
 
         // Compare red channel with neighbors where alpha is non-zero
-        if (right_texel.a != 0.0 && sample_color.r >= right_texel.r + 2.0)
+        if (right_texel.a != 0.0 && sample_color.r >= right_texel.r + 5.0)
         {
             alpha = 1.0;
         }
-        else if (left_texel.a != 0.0 && sample_color.r >= left_texel.r + 2.0)
+        else if (left_texel.a != 0.0 && sample_color.r >= left_texel.r + 5.0)
         {
             alpha = 1.0;
         }
-        else if (up_texel.a != 0.0 && sample_color.r >= up_texel.r + 2.0)
+        else if (up_texel.a != 0.0 && sample_color.r >= up_texel.r + 5.0)
         {
             alpha = 1.0;
         }
-        else if (down_texel.a != 0.0 && sample_color.r >= down_texel.r + 2.0)
+        else if (down_texel.a != 0.0 && sample_color.r >= down_texel.r + 5.0)
         {
             alpha = 1.0;
         }		
