@@ -9,7 +9,7 @@ vertex_format_add_colour();
 
 buff_form = vertex_format_end();
 
-var buff_buff=buffer_load("HDobj.vbuff");
+var buff_buff=buffer_load("run0000.vbuff");
 
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
     var xx = buffer_peek(buff_buff, i + 0, buffer_f32);
@@ -43,11 +43,12 @@ max_z=zz;
 model=vertex_create_buffer_from_buffer(buff_buff, buff_form);
 buffer_delete(buff_buff);
 height=144;
-scale=height/abs(max_y-min_y);
+//scale=height/abs(max_y-min_y);
+scale=3*1.26880071899;
 true_max_x=scale*max(abs(min_x),abs(max_x));
 true_max_z=scale*max(abs(min_z),abs(max_z));
-surf_width=2*ceil(max(true_max_x,true_max_z))+2;
-drop_point=max(true_max_x,true_max_z);
+surf_width=2*ceil(max(true_max_x,true_max_z))+4;
+drop_point=127.5;
 surf_height=height+2;
 
 x=room_width/2;

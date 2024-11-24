@@ -46,6 +46,7 @@ shader_reset();
 surface_reset_target();
 draw_surface_ext(model_surf,room_width/2-surf_width*surf_scale/2,surf_y-surface_get_height(model_surf)/2*surf_scale,surf_scale,surf_scale,0,c_white,1);
 
+//draw_surface_ext(model_surf,room_width/2-surf_width*surf_scale/2,surf_y-surface_get_height(model_surf)/2*surf_scale,1/3*surf_scale,1/3*surf_scale,0,c_white,1);
 
 
 

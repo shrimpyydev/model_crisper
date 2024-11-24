@@ -75,7 +75,7 @@ void main()
     vec4 newColor2 = texture2D(lut_tex, texPos2);
     vec4 newColor = mix(newColor1, newColor2, fract(blueColor));
 	newColor.a = alpha;
-	vec4 pos_color = vec4(rgbc(final_color.x, final_color.y, floor(min(1.0,final_color.z * (v_vColour.r*norm_dif))*16.0+0.5))/16.0, alpha);
+	vec4 pos_color = vec4(rgbc(final_color.x, final_color.y, floor(min(1.0,final_color.z * (v_vColour.r*norm_dif))*5.0+0.5))/5.0, alpha);
 	
 	//gl_FragColor = v_vColour;
 	//gl_FragColor = newColor;
@@ -91,6 +91,7 @@ void main()
 	//gl_FragColor = vec4(comp_vec.x,comp_vec.y, comp_vec.z,1.0);
 	//float shade = floor(16.0*v_vColour.r*norm_dif+0.5)/16.0;
     //gl_FragColor = texture2D( gm_BaseTexture, v_vTexcoord ) *vec4(shade,shade,shade,alpha);
+	//gl_FragData[0] = newColor;
 gl_FragData[0] = textureColor;
 gl_FragData[1] = vec4(v_vTexcoord.x,v_vTexcoord.y,1.0-v_vColour.r,1.0);
 gl_FragData[2] = vec4(v_vNormal.x*0.5+0.5,v_vNormal.y*0.5+0.5,1.0-(v_vNormal.z*0.5+0.5),1.0);
