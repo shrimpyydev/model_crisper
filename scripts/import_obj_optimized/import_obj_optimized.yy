@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"import_obj_optimized",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"import_obj_optimized",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

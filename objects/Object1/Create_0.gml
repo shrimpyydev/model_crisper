@@ -9,15 +9,24 @@ vertex_format_add_colour();
 
 buff_form = vertex_format_end();
 
-var buff_buff=buffer_load("run0000.vbuff");
+min_y=undefined;
+max_y=undefined;
+min_x=undefined;
+max_x=undefined;
+min_z=undefined;
+max_z=undefined;
+
+var buff=file_find_first("*.vbuff",fa_none);
+
+var buff_buff=buffer_load(buff);
 
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
     var xx = buffer_peek(buff_buff, i + 0, buffer_f32);
     var yy = buffer_peek(buff_buff, i + 4, buffer_f32);
     var zz = buffer_peek(buff_buff, i + 8, buffer_f32);
-	if(i=0)
+	if(min_x=undefined)
 	{
-	min_y=yy;
+min_y=yy;
 max_y=yy;
 min_x=xx;
 max_x=xx;
@@ -69,3 +78,4 @@ vec_x=0;
 vec_y=0;
 vec_z=1;
 
+file_find_close();
