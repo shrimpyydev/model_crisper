@@ -16,10 +16,21 @@ max_x=undefined;
 min_z=undefined;
 max_z=undefined;
 
-var buff=file_find_first("*.vbuff",fa_none);
+//var buff=file_find_first("*.vbuff",fa_none);
 
-var buff_buff=buffer_load(buff);
+//var buff_buff=buffer_load(buff);
+var path = filename_path(get_open_filename("*.obj", ""));
 
+
+
+
+show_debug_message("path: "+path);
+
+var model = file_find_first(path+"*.obj",fa_none);
+
+show_debug_message(string_lettersdigits(string_replace(model,".obj","")));
+{
+	/*
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
     var xx = buffer_peek(buff_buff, i + 0, buffer_f32);
     var yy = buffer_peek(buff_buff, i + 4, buffer_f32);
@@ -77,5 +88,9 @@ midpoint_y=y;
 vec_x=0;
 vec_y=0;
 vec_z=1;
+}
+*/
+}
 
 file_find_close();
+game_end();

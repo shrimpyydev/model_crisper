@@ -152,7 +152,8 @@ function import_obj_optimized(filename, vertex_format) {
     }
     
     vertex_end(vb);
-    vertex_freeze(vb);
     
-    return vb;
+    
+    return(buffer_create_from_vertex_buffer(vb, buffer_grow, 1));
+	vertex_delete_buffer(vb);
 }
