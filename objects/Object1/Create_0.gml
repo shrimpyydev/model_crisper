@@ -21,14 +21,50 @@ max_z=undefined;
 //var buff_buff=buffer_load(buff);
 var path = filename_path(get_open_filename("*.obj", ""));
 
-
+animations_list=[];
 
 
 show_debug_message("path: "+path);
 
 var model = file_find_first(path+"*.obj",fa_none);
+var string_store;
+var model_name;
+var animation_number;
 
-show_debug_message(string_lettersdigits(string_replace(model,".obj","")));
+while(model!="")
+{
+string_store=sanitize_model_string(model);
+model_name=string_letters(string_store);
+animation_number=string_digits(string_store);
+if (!variable_instance_exists(id, model_name))
+{
+variable_instance_set(id, model_name, ds_grid_create(3,1));	
+array_push(animations_list,variable_instance_get(id, model_name));
+ds_grid_set(variable_instance_get(id,model_name),0,0,model_name);
+ds_grid_set(variable_instance_get(id,model_name),1,0,animation_number);
+ds_grid_set(variable_instance_get(id,model_name),2,0,model);
+}
+else
+{
+	
+ds_grid_resize(variable_instance_get(id,model_name),3,ds_grid_height(variable_instance_get(id,model_name))+1);
+ds_grid_set(variable_instance_get(id,model_name),0,ds_grid_height(variable_instance_get(id,model_name))-1,model_name);
+
+ds_grid_set(variable_instance_get(id,model_name),1,ds_grid_height(variable_instance_get(id,model_name))-1,animation_number);
+ds_grid_set(variable_instance_get(id,model_name),2,ds_grid_height(variable_instance_get(id,model_name))-1,model);
+}
+model=file_find_next();	
+	
+	
+}
+
+
+
+
+
+
+show_debug_message(string(animations_list[0]));
+show_debug_message(string(ds_grid_get(animations_list[1],0,2))+", "+string(ds_grid_get(animations_list[1],1,2)));
 {
 	/*
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
