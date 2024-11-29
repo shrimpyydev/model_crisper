@@ -45,7 +45,7 @@ while (model != "") {
         
         ds_grid_set(grid, 0, 0, model_name);
         ds_grid_set(grid, 1, 0, animation_number);
-        ds_grid_set(grid, 2, 0, model);
+        ds_grid_set(grid, 2, 0, path+model);
     } else {
         grid = variable_instance_get(id, model_name);
         var new_row = ds_grid_height(grid); // Calculate the new row index
@@ -58,35 +58,70 @@ while (model != "") {
     
     model = file_find_next();
 }
-
+var 
 var model_quantity = array_length(animations_list);
 show_debug_message("animations found: "+string(model_quantity));
-for(var i=0; i<model_quantity; i+=1)
-
-	for(var o=0; o<ds_grid_height(array_get(animations_list,o)); o+=1)
+for(var i=0; i<model_quantity; i+=1){
+	
+	for(var o=0; o<ds_grid_height(array_get(animations_list,i)); o+=1)
 	{
-	buffer[o]	
+		var buffers=import_obj_optimized(ds_grid_get(animations_list[i],2,o),buff_form);
+		for (var p = 0; p < buffer_get_size(buffers); p += 36) 
 		
+		{	
+         	var xx = buffer_peek(buffers, p + 0, buffer_f32);
+			var yy = buffer_peek(buffers, p + 4, buffer_f32);
+			var zz = buffer_peek(buffers, p + 8, buffer_f32);
+			
+			
+			if(min_x=undefined)
+			{
+			min_y=yy;
+			max_y=yy;
+			min_x=xx;
+			max_x=xx;
+			min_z=zz;
+			max_z=zz;	
 		
-		
-		
-		
-		
-	}
+			}
+			else
+			{
+			min_x=min(min_x,xx);
+			max_x=max(max_x,xx);
+			min_y=min(min_y,yy);
+			max_y=max(max_y,yy);
+			min_z=min(zz,min_z);
+			max_z=max(zz,max_z);
+			}
 	
 	
 	
 	
 	
-	
+	buffer_delete(buffers);
+	var vert_buffer=vertex_create_buffer_from_buffer(buffers, buff_form);
+		
+		
+		
+		
+	    }
 }
+}
+height=scale*abs(max_y-min_y);
 
-
+min_x*=scale;
+max_x*=scale;
+min_y=(min_y-max_y)*scale;
+max_y=0;
+min_z*=scale;
+max_z*=scale;
 
 
 
 show_debug_message(string(ds_grid_get(animations_list[0],0,2))+", "+string(ds_grid_get(animations_list[0],1,2))+", "+string(ds_grid_get(animations_list[0],2,2)));
-show_debug_message(string(min_x)+", "+string(max_x));
+show_debug_message("x vals: "+string(min_x)+", "+string(max_x));
+show_debug_message("y vals: "+string(min_y)+", "+string(max_y));
+show_debug_message("z vals: "+string(min_z)+", "+string(max_z));
 {
 	/*
 for (var i = 0; i < buffer_get_size(buff_buff); i += 36) {
