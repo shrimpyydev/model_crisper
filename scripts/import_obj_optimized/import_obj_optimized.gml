@@ -35,8 +35,8 @@ function import_obj_optimized(filename, vertex_format) {
         switch (tokens[0]) {
             case "v":
                 buffer_write(px, buffer_f32, real(tokens[1]));
-                buffer_write(py, buffer_f32, real(tokens[3]));
-                buffer_write(pz, buffer_f32, real(tokens[2]));
+                buffer_write(py, buffer_f32, real(tokens[2]));
+                buffer_write(pz, buffer_f32, real(tokens[3]));
                 break;
             case "vt":
                 buffer_write(tx, buffer_f32, real(tokens[1]));
@@ -44,8 +44,8 @@ function import_obj_optimized(filename, vertex_format) {
                 break;
             case "vn":
                 buffer_write(nx, buffer_f32, real(tokens[1]));
-                buffer_write(ny, buffer_f32, real(tokens[3]));
-                buffer_write(nz, buffer_f32, real(tokens[2]));
+                buffer_write(ny, buffer_f32, real(tokens[2]));
+                buffer_write(nz, buffer_f32, real(tokens[3]));
                 break;
             case "f":
                 var n = array_length(tokens);

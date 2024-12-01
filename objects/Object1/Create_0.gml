@@ -1,5 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
+model_pair = function(vbuff, texture) constructor
+{
+    vertex_buff = vbuff;
+    tex = texture;
+}
+
+
 can_draw=0;
 
 vertex_format_begin();
@@ -13,3 +20,4 @@ active_model=-1;
 model_list={};
 surface_scale=3;
 model_surface=-1;
+model_constraints=undefined;

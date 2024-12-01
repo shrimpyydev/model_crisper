@@ -9,7 +9,7 @@ min_x=undefined;
 max_x=undefined;
 min_z=undefined;
 max_z=undefined;
-desired_height=144;
+desired_height=72;
 scale=desired_height/(3*1.26880071899);
 //var buff=file_find_first("*.vbuff",fa_none);
 
@@ -18,7 +18,7 @@ var path = filename_path(get_open_filename("*.obj", ""));
 
 animations_list=[];
 
-import_correction_matrix=matrix_build(0,0,0,90,0,0,1,1,1);
+import_correction_matrix=matrix_build(0,0,0,0,0,0,1,1,1);
 
 show_debug_message("path: "+path);
 
@@ -76,7 +76,8 @@ for(var i=0; i<model_quantity; i+=1){
 			xx = scale*coords[0];
 			yy = scale*coords[1];
 			zz = scale*coords[2];
-			//var norm_dis=point_distance_3d(0,0,0,nx,ny,nz);
+			var norm_dis=point_distance_3d(0,0,0,nx,ny,nz);
+			
 			nx =norms[0];
 			ny = norms[1];
 			nz = norms[2];
@@ -132,7 +133,7 @@ max_z : max_z
 	
 };
 var _json_string = json_stringify(model_contraints);
-var _file = file_text_open_write(path+"model_contraints.json");
+var _file = file_text_open_write(path+"model_constraints.json");
 file_text_write_string(_file, _json_string);
 file_text_close(_file);
 

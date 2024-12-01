@@ -10,14 +10,17 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 varying vec3 v_vNormal;
 uniform vec3 pos;
-
+varying float z_pos;
+uniform mat4 model_mat;
 
 void main()
 {
-    vec4 object_space_pos = vec4( in_Position.x + pos.x, in_Position.y + pos.y, in_Position.z + pos.z, 1.0);
-    gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
+    mat3 rot_mat = mat3(model_mat);
+	vec3 object_space_pos = rot_mat * vec3( in_Position.x, in_Position.y, in_Position.z)+vec3(pos.xyz);
+    gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
     
     v_vColour = in_Colour;
-	v_vNormal = in_Normal;
+	v_vNormal = rot_mat*normalize(in_Normal);
     v_vTexcoord = in_TextureCoord;
+	z_pos = object_space_pos.z;
 }
