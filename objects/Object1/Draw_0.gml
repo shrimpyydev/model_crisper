@@ -1,9 +1,45 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
+if(can_draw=1)
+{
 gpu_set_ztestenable(1);
 gpu_set_zwriteenable(1);
+surface_set_target(model_surface);
+draw_clear_alpha(c_white,0);
+shader_set(model_surface_render);
+shader_set_uniform_f_array(shader_get_uniform(model_surface_render,"pos"),[-model_constraints.min_x+1,-model_constraints.max_y-model_constraints.min_y+1,0]);
+vertex_submit(model_test,pr_trianglelist,sprite_get_texture(Sprite3,0));
+shader_reset();
+surface_reset_target();
+draw_surface_ext(model_surface,room_width/2-surface_get_width(model_surface)/2*surface_scale,room_height/2-surface_get_height(model_surface)/2*surface_scale,surface_scale,surface_scale,0,c_white,1);
 
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 surface_set_target(model_surf);
 draw_clear_alpha(c_white,0);
 surface_reset_target();

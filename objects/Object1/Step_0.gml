@@ -6,7 +6,7 @@ direction+=1;
 model_mat=matrix_build(0,0,0,0,round(direction/22.5)*22.5,0,1,1,1);
 //model_mat=matrix_build(0,0,0,0,direction,0,1,1,1);
 
-
+/*
 var dir=point_direction(midpoint_x,midpoint_y,mouse_x,mouse_y);
 var dis=min(256,point_distance(midpoint_x,midpoint_y,mouse_x,mouse_y));
 
