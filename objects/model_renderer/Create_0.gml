@@ -4,6 +4,7 @@ model_pair = function(vbuff, texture) constructor
 {
     vertex_buff = vbuff;
     tex = texture;
+	selected = 0;
 }
 
 
@@ -21,7 +22,7 @@ model_list={};
 surface_scale=3;
 model_surface=-1;
 model_constraints=undefined;
-
+cursor_position=0;
 vertex_format_begin();
 vertex_format_add_position_3d();
 vertex_format_add_normal();

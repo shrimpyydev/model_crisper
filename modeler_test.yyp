@@ -36,8 +36,8 @@
   },
   "name":"modeler_test",
   "resources":[
-    {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
-    {"id":{"name":"Object2","path":"objects/Object2/Object2.yy",},},
+    {"id":{"name":"material_manager","path":"objects/material_manager/material_manager.yy",},},
+    {"id":{"name":"model_renderer","path":"objects/model_renderer/model_renderer.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"cross_product_normalized","path":"scripts/cross_product_normalized/cross_product_normalized.yy",},},
     {"id":{"name":"import_obj_optimized","path":"scripts/import_obj_optimized/import_obj_optimized.yy",},},

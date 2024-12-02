@@ -2,9 +2,16 @@ model=get_open_filename(".vbuff", "");
 var buff_test = buffer_load(model);
 
 model_test = vertex_create_buffer_from_buffer(buff_test, buff_form);
-tex_import=sprite_add(get_open_filename("*.png",""),0,0,0,0,0);
-struct_set(model_list,sanitize_model_string(model),new model_pair(model_test,sprite_get_texture(tex_import,0)));
 
+
+if(material_manager.cursor_position=0)
+{
+struct_set(model_list,sanitize_model_string(model),new model_pair(model_test,surface_get_texture(struct_get(material_manager.material_struct,material_manager.population[0]))));
+}
+else
+{
+struct_set(model_list,sanitize_model_string(model),new model_pair(model_test,sprite_get_texture(struct_get(material_manager.material_struct,material_manager.population[material_manager.cursor_position]),0)));
+}
 
 buffer_delete(buff_test);
 if(model_constraints=undefined)
