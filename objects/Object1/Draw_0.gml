@@ -7,9 +7,9 @@ if(can_draw=1)
 gpu_set_ztestenable(1);
 gpu_set_zwriteenable(1);
 surface_set_target(model_surface);
-draw_clear_alpha(c_white,0);
+draw_clear_alpha(c_fuchsia,1);
 shader_set(model_surface_render);
-shader_set_uniform_f_array(shader_get_uniform(model_surface_render,"pos"),[-model_constraints.min_x+1,-model_constraints.max_y-model_constraints.min_y+1,0]);
+shader_set_uniform_f_array(shader_get_uniform(model_surface_render,"pos"),[surface_get_width(model_surface)/2,-model_constraints.max_y+surface_get_height(model_surface)-1,0]);
 shader_set_uniform_f_array(shader_get_uniform(model_surface_render,"model_mat"),model_mat);
 //vertex_submit(model_test,pr_trianglelist,sprite_get_texture(Sprite3,0));
 var model_array=struct_get_names(model_list);

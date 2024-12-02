@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"cross_product_normalized",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"cross_product_normalized",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

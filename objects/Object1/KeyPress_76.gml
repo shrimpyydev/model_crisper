@@ -32,5 +32,10 @@ if (file_path != "") { // Ensure the path is valid
 }
 if(!surface_exists(model_surface))
 {
-model_surface=surface_create(2+ceil(abs(model_constraints.max_x-model_constraints.min_x)),ceil(2+abs(model_constraints.max_y-model_constraints.min_y)));
+true_max_x=max(abs(model_constraints.min_x),abs(model_constraints.max_x));
+true_max_z=max(abs(model_constraints.min_z),abs(model_constraints.max_z));
+surf_width=sqrt(sqr(true_max_x)+sqr(true_max_z));
+
+
+model_surface=surface_create(2+ceil(surf_width),ceil(2+abs(model_constraints.max_y-model_constraints.min_y)));
 }

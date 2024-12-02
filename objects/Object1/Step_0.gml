@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//direction+=1;
+direction+=1;
 //direction=270;
-model_mat=matrix_build(0,0,0,0,round(direction/22.5)*22.5,0,1,1,1);
+model_mat=matrix_build(0,0,0,0,round(direction/11.25)*11.25,0,1,1,1);
 //model_mat=matrix_build(0,0,0,0,direction,0,1,1,1);
 
 /*

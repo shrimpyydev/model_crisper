@@ -9,7 +9,7 @@ min_x=undefined;
 max_x=undefined;
 min_z=undefined;
 max_z=undefined;
-desired_height=72;
+desired_height=144;
 scale=desired_height/(3*1.26880071899);
 //var buff=file_find_first("*.vbuff",fa_none);
 
@@ -73,9 +73,9 @@ for(var i=0; i<model_quantity; i+=1){
 			
 			var coords = matrix_transform_vertex(import_correction_matrix, xx, yy, zz);
 			var norms = matrix_transform_vertex(import_correction_matrix,nx,ny,zz);
-			xx = scale*coords[0];
-			yy = scale*coords[1];
-			zz = scale*coords[2];
+			xx = round(scale*coords[0]);
+			yy = round(scale*coords[1]);
+			zz = round(scale*coords[2]);
 			var norm_dis=point_distance_3d(0,0,0,nx,ny,nz);
 			
 			nx =norms[0];

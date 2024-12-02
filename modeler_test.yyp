@@ -39,6 +39,7 @@
     {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},},
     {"id":{"name":"Object2","path":"objects/Object2/Object2.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"cross_product_normalized","path":"scripts/cross_product_normalized/cross_product_normalized.yy",},},
     {"id":{"name":"import_obj_optimized","path":"scripts/import_obj_optimized/import_obj_optimized.yy",},},
     {"id":{"name":"render_model_struct","path":"scripts/render_model_struct/render_model_struct.yy",},},
     {"id":{"name":"sanitize_model_string","path":"scripts/sanitize_model_string/sanitize_model_string.yy",},},
