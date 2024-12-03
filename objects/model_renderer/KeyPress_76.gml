@@ -12,6 +12,7 @@ else
 {
 struct_set(model_list,sanitize_model_string(model),new model_pair(model_test,sprite_get_texture(struct_get(material_manager.material_struct,material_manager.population[material_manager.cursor_position]),0)));
 }
+show_debug_message("selected: "+string(struct_get(struct_get(model_list,sanitize_model_string(model)),"selected")))
 
 buffer_delete(buff_test);
 if(model_constraints=undefined)
