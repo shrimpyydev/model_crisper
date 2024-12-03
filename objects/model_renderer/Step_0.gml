@@ -27,3 +27,17 @@ else if(cursor_position<0)
 cursor_position=material_quantity-1;	
 	
 }
+if(cursor_position!=cursor_position_previous)
+{
+var previously_selected=struct_get(model_list,population[cursor_position_previous]);
+var currently_selected=struct_get(model_list,population[cursor_position]);
+struct_set(previously_selected,"selected",0);
+struct_set(currently_selected,"selected",1);
+
+
+
+
+
+
+
+}

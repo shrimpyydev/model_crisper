@@ -9,7 +9,7 @@ min_x=undefined;
 max_x=undefined;
 min_z=undefined;
 max_z=undefined;
-desired_height=144;
+desired_height=72;
 scale=desired_height/(3*1.26880071899);
 //var buff=file_find_first("*.vbuff",fa_none);
 

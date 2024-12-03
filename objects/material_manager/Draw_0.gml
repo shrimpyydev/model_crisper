@@ -6,7 +6,7 @@ surface_reset_target();
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
-draw_rectangle_color(x-36,y-32,x+36,y+32,c_red,c_red,c_red,c_red,0);
+draw_rectangle_color(x-42,y-42,x+42,y+42,c_red,c_red,c_red,c_red,0);
 draw_text_color(x,y,"Import\nMaterial",c_yellow,c_yellow,c_yellow,c_yellow,1);
 if(cursor_position=0)
 {

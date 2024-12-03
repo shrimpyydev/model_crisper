@@ -19,7 +19,7 @@ vertex_format_add_colour();
 buff_form = vertex_format_end();
 active_model=-1;
 model_list={};
-surface_scale=1;
+surface_scale=3;
 model_surface=-1;
 model_constraints=undefined;
 cursor_position=0;

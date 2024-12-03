@@ -4,6 +4,15 @@ var buff_test = buffer_load(model);
 model_test = vertex_create_buffer_from_buffer(buff_test, buff_form);
 
 
+for(var i=0; i<array_length(population); i++)
+{
+var struct_pos=struct_get(model_list,population[i]);
+struct_set(struct_pos,"selected",0);
+	
+	
+}
+
+
 if(material_manager.cursor_position=0)
 {
 struct_set(model_list,sanitize_model_string(model),new model_pair(model_test,surface_get_texture(struct_get(material_manager.material_struct,material_manager.population[0]))));
