@@ -16,6 +16,12 @@ scale=desired_height/(3*1.26880071899);
 //var buff_buff=buffer_load(buff);
 var path = filename_path(get_open_filename("*.obj", ""));
 
+if(path="")
+{
+file_find_close();
+exit;	
+}
+
 animations_list=[];
 
 import_correction_matrix=matrix_build(0,0,0,0,0,0,1,1,1);

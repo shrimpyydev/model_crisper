@@ -13,7 +13,7 @@ if(can_draw=1)
 gpu_set_ztestenable(1);
 gpu_set_zwriteenable(1);
 surface_set_target(model_surface);
-draw_clear_alpha(c_fuchsia,1);
+draw_clear_alpha(c_fuchsia,0);
 shader_set(model_surface_render);
 shader_set_uniform_f_array(shader_get_uniform(model_surface_render,"pos"),[surface_get_width(model_surface)/2,-model_constraints.max_y+surface_get_height(model_surface)-1,0]);
 shader_set_uniform_f_array(shader_get_uniform(model_surface_render,"model_mat"),model_mat);
