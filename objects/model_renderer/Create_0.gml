@@ -7,7 +7,7 @@ model_pair = function(vbuff, texture) constructor
 	selected = 1;
 }
 
-
+population=[];
 can_draw=0;
 
 vertex_format_begin();

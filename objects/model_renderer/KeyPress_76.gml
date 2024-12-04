@@ -1,4 +1,13 @@
 model=get_open_filename(".vbuff", "");
+var file_path = filename_path(model);
+show_debug_message(file_path);
+if(file_path="")
+{
+show_debug_message("retuned: "+model);
+exit;	
+}
+
+
 var buff_test = buffer_load(model);
 
 model_test = vertex_create_buffer_from_buffer(buff_test, buff_form);
@@ -11,23 +20,19 @@ struct_set(struct_pos,"selected",0);
 	
 	
 }
+cursor_position_previous=i;
+cursor_position=cursor_position_previous;
 
 
-if(material_manager.cursor_position=0)
-{
-struct_set(model_list,sanitize_model_string(model),new model_pair(model_test,surface_get_texture(struct_get(material_manager.material_struct,material_manager.population[0]))));
-}
-else
-{
-struct_set(model_list,sanitize_model_string(model),new model_pair(model_test,sprite_get_texture(struct_get(material_manager.material_struct,material_manager.population[material_manager.cursor_position]),0)));
-}
-show_debug_message("selected: "+string(struct_get(struct_get(model_list,sanitize_model_string(model)),"selected")))
+struct_set(model_list,string_replace(sanitize_model_string(model),string_lettersdigits(file_path),""),new model_pair(model_test,image_get_texture(struct_get(material_manager.material_struct,"NewMaterial"+string(material_manager.cursor_position)))));
+
+show_debug_message("selected: "+string(struct_get(struct_get(model_list,string_replace(sanitize_model_string(model),string_lettersdigits(file_path),"")),"selected")))
 
 buffer_delete(buff_test);
 if(model_constraints=undefined)
 {
 //var file_path = get_open_filename("|*.json", ""); // Get the file path
-var file_path = filename_path(model); // Get the directory path of the model
+ // Get the directory path of the model
 if (file_path != "") { // Ensure the path is valid
     var json_file = file_find_first(file_path + "*.json", fa_none); // Find the first JSON file in the directory
     if (json_file != "") { // Ensure a JSON file was found
