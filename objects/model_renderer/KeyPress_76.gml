@@ -1,42 +1,58 @@
-model=get_open_filename(".vbuff", "");
-var file_path = filename_path(model);
-show_debug_message(file_path);
-if(file_path="")
+var  vbuff=get_open_filename(".vbuff", "");
+var path = filename_path(vbuff);
+show_debug_message(path);
+if(path="")
 {
 show_debug_message("retuned: "+model);
 exit;	
 }
 
 
-var buff_test = buffer_load(model);
-
-model_test = vertex_create_buffer_from_buffer(buff_test, buff_form);
-
-
-for(var i=0; i<array_length(population); i++)
-{
-var struct_pos=struct_get(model_list,population[i]);
-struct_set(struct_pos,"selected",0);
+vbuff = file_find_first(path+"*.vbuff",fa_none);
+while (vbuff != "") {
+    //string_store = sanitize_model_string(model);
+    show_debug_message("loading: "+path+vbuff);
+	var buffers=buffer_load(path+vbuff);
+	var struct_names=struct_get_names(frames);
+	var frame_number=string_digits(vbuff);
 	
 	
+	if(!array_contains(struct_names,"Frame"+frame_number))
+	{
+	struct_set(frames,"Frame"+frame_number,{});
+	var sub_struct=struct_get(frames,"Frame"+frame_number);
+	var new_model=model_pair(vertex_create_buffer_from_buffer(buffers,buff_form),image_get_texture(struct_get(material_manager.material_struct,"NewMaterial"+string(material_manager.cursor_position))));
+	struct_set(sub_struct,"models",[new_model]);	
+		
+	}
+	else
+	{
+	var sub_struct=struct_get(frames,"Frame"+frame_number);
+	var new_model=model_pair(vertex_create_buffer_from_buffer(buffers,buff_form),image_get_texture(struct_get(material_manager.material_struct,"NewMaterial"+string(material_manager.cursor_position))),string_letters(sanitize_model_string(vbuff)));
+	array_push(sub_struct.models,new_model);
+		
+		
+	}
+
+
+
+
+
+
+buffer_delete(buffers);
+vbuff = file_find_next();
+show_debug_message(string(frames));
 }
-cursor_position_previous=i;
-cursor_position=cursor_position_previous;
 
 
-struct_set(model_list,string_replace(sanitize_model_string(model),string_lettersdigits(file_path),""),new model_pair(model_test,image_get_texture(struct_get(material_manager.material_struct,"NewMaterial"+string(material_manager.cursor_position)))));
 
-show_debug_message("selected: "+string(struct_get(struct_get(model_list,string_replace(sanitize_model_string(model),string_lettersdigits(file_path),"")),"selected")))
-
-buffer_delete(buff_test);
 if(model_constraints=undefined)
 {
-//var file_path = get_open_filename("|*.json", ""); // Get the file path
- // Get the directory path of the model
-if (file_path != "") { // Ensure the path is valid
-    var json_file = file_find_first(file_path + "*.json", fa_none); // Find the first JSON file in the directory
+// Get the directory path of the model
+if (path != "") { // Ensure the path is valid
+    var json_file = file_find_first(path + "*.json", fa_none); // Find the first JSON file in the directory
     if (json_file != "") { // Ensure a JSON file was found
-        var file_handle = file_text_open_read(file_path+json_file); // Open the file for reading
+        var file_handle = file_text_open_read(path+json_file); // Open the file for reading
         var text = file_text_read_string(file_handle); // Read the content
         model_constraints = json_parse(text); // Parse the JSON
         file_text_close(file_handle); // Close the file

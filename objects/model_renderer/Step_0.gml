@@ -15,6 +15,13 @@ vec_y=lengthdir_y(-dis*32,dir);
 
 vec_z=32+sqrt(sqr(256)-sqr(dis));
 */
+
+
+
+
+
+
+/*
 population=struct_get_names(model_list);
 cursor_position=clamp(cursor_position+(keyboard_check_pressed(vk_up)-keyboard_check_pressed(vk_down)),-1,max(array_length(population)-1,0));
 material_quantity=array_length(population);

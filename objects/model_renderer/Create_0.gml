@@ -1,10 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
-model_pair = function(vbuff, texture) constructor
+model_pair = function(vbuff, texture, mod_name) constructor
 {
     vertex_buff = vbuff;
     tex = texture;
-	selected = 1;
+	name = mod_name;
+	selected = 0;
 }
 
 population=[];
@@ -19,6 +20,7 @@ vertex_format_add_colour();
 buff_form = vertex_format_end();
 active_model=-1;
 model_list={};
+frames={};
 surface_scale=3;
 model_surface=-1;
 model_constraints=undefined;
