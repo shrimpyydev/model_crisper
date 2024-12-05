@@ -21,7 +21,12 @@ if(path="")
 file_find_close();
 exit;	
 }
-
+if(!directory_exists(path+"export"))
+{
+directory_create(path+"export");	
+	
+	
+}
 
 
 
@@ -76,8 +81,8 @@ while (model != "") {
 	var export_filename = string_replace(model,".obj",".vbuff");
 	export_filename = string_replace(export_filename,path,"");
 	export_filename = string_replace(export_filename,string_digits(export_filename),string(real(string_digits(export_filename))));
-	 show_debug_message("save: "+export_filename);
-	buffer_save(buffers,path+export_filename);
+	 show_debug_message("save: "+string_replace(export_filename,path,path+"export/"));
+	buffer_save(buffers,path+"export/"+export_filename);
 	buffer_delete(buffers);
     model = file_find_next();
 	show_debug_message(model);
@@ -92,11 +97,11 @@ max_x : max_x,
 min_y : min_y,	
 max_y : max_y,
 min_z : min_z,
-max_z : max_z
+max_z : max_z,
 	
 };
 var _json_string = json_stringify(model_contraints);
-var _file = file_text_open_write(path+"model_constraints.json");
+var _file = file_text_open_write(path+"export/model_constraints.json");
 file_text_write_string(_file, _json_string);
 file_text_close(_file);
 
