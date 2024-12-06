@@ -9,7 +9,7 @@ min_x=undefined;
 max_x=undefined;
 min_z=undefined;
 max_z=undefined;
-desired_height=144;
+desired_height=172;
 scale=desired_height/(3*1.26880071899);
 //var buff=file_find_first("*.vbuff",fa_none);
 
@@ -21,9 +21,9 @@ if(path="")
 file_find_close();
 exit;	
 }
-if(!directory_exists(path+"export"))
+if(!directory_exists(path+"export/player/test"))
 {
-directory_create(path+"export");	
+directory_create(path+"export/player/test");	
 	
 	
 }
@@ -81,8 +81,8 @@ while (model != "") {
 	var export_filename = string_replace(model,".obj",".vbuff");
 	export_filename = string_replace(export_filename,path,"");
 	export_filename = string_replace(export_filename,string_digits(export_filename),string(real(string_digits(export_filename))));
-	 show_debug_message("save: "+string_replace(export_filename,path,path+"export/"));
-	buffer_save(buffers,path+"export/"+export_filename);
+	 show_debug_message("save: "+string_replace(export_filename,path,path+"export/player/test/"));
+	buffer_save(buffers,path+"export/player/test/"+export_filename);
 	buffer_delete(buffers);
     model = file_find_next();
 	show_debug_message(model);

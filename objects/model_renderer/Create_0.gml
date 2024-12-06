@@ -33,4 +33,5 @@ vertex_format_add_colour();
 vertex_format_add_custom(vertex_type_float3,vertex_usage_colour);
 complex_form = vertex_format_end();
 
-show_debug_message(string(cross_product_normalized([0,-1,0],[0,0,-1])));
+show_debug_message(string(cross_product_normalized([0,0,1],[0,1,0])));
+show_debug_message("Program director:"+string(program_directory));
