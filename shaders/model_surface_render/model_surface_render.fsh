@@ -8,7 +8,7 @@ varying float z_pos;
 uniform float selected;
 void main()
 {
-    float dif = -dot(v_vNormal,normalize(vec3(-0.75,0.5,1.0)));
+    float dif = -dot(v_vNormal,normalize(vec3(0.75,-0.5,1.0)));
 	dif = dif * 0.5 +0.5;
 	dif=mix(0.4,1.0,dif);
 	float shade;

@@ -9,7 +9,7 @@ min_x=undefined;
 max_x=undefined;
 min_z=undefined;
 max_z=undefined;
-desired_height=172;
+desired_height=96;
 scale=desired_height/(3*1.26880071899);
 //var buff=file_find_first("*.vbuff",fa_none);
 
@@ -101,7 +101,7 @@ max_z : max_z,
 	
 };
 var _json_string = json_stringify(model_contraints);
-var _file = file_text_open_write(path+"export/model_constraints.json");
+var _file = file_text_open_write(path+"export/player/test/model_constraints.json");
 file_text_write_string(_file, _json_string);
 file_text_close(_file);
 
