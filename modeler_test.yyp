@@ -51,6 +51,7 @@
     {"id":{"name":"height_visualizer","path":"shaders/height_visualizer/height_visualizer.yy",},},
     {"id":{"name":"hull_shader","path":"shaders/hull_shader/hull_shader.yy",},},
     {"id":{"name":"model_shader","path":"shaders/model_shader/model_shader.yy",},},
+    {"id":{"name":"model_surface_render_cull","path":"shaders/model_surface_render_cull/model_surface_render_cull.yy",},},
     {"id":{"name":"model_surface_render","path":"shaders/model_surface_render/model_surface_render.yy",},},
     {"id":{"name":"outline_complex","path":"shaders/outline_complex/outline_complex.yy",},},
     {"id":{"name":"outline","path":"shaders/outline/outline.yy",},},

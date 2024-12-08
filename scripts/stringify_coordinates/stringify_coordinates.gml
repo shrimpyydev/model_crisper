@@ -1,13 +1,15 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function stringify_coordinates(xx,yy,zz,precision){
-var xx_length=string_length(string(floor(xx)));
-var yy_length=string_length(string(floor(yy)));
-var zz_length=string_length(string(floor(zz)));
+function stringify_coordinates(xx, yy, zz, precision) {
+    // Use the specified precision for rounding
+    var factor = power(10, precision);
+    
+    // Round and then divide by factor to keep only the required precision
+    var xx_str = string(round(xx * factor) / factor);
+    var yy_str = string(round(yy * factor) / factor);
+    var zz_str = string(round(zz * factor) / factor);
 
-
-
-var long_string="["+string_format(xx,xx_length,precision)+","+string_format(yy,yy_length,precision)+","+string_format(zz,zz_length,precision)+"]";
-show_debug_message("testing: "+long_string);
-return long_string;
+    // Combine into the string format you need
+    var long_string = "[" + xx_str + "," + yy_str + "," + zz_str + "]";
+    
+    show_debug_message("testing: " + long_string); // Debugging line to output the result
+    return long_string;
 }

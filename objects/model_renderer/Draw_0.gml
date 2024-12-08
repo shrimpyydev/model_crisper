@@ -48,6 +48,8 @@ render_model_struct(model_draw_array[i]);
 
 //shader_reset();
 surface_reset_target();
+
+
 draw_surface_ext(model_surface,room_width/2-surface_get_width(model_surface)/2*surface_scale,room_height/2-surface_get_height(model_surface)/2*surface_scale,surface_scale,surface_scale,0,c_white,1);
 
 

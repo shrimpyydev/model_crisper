@@ -2,7 +2,7 @@
 // You can write your code in this editor
 if(model_loaded=1)and(array_length(struct_get_names(frames))!=0)
 {
-current_frame+=0.6;
+current_frame+=0.1;
 current_frame=value_wrap(current_frame,0,array_length(struct_get_names(frames)));
 
 }

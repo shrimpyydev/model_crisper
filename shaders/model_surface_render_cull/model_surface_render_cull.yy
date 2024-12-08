@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"model_surface_render_cull",
+  "name":"model_surface_render_cull",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

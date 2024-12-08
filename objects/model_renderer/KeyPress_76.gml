@@ -15,7 +15,7 @@ while (vbuff != "") {
 	var buffers=buffer_load(path+vbuff);
 	var struct_names=struct_get_names(frames);
 	var frame_number=string_digits(vbuff);
-	var smooth_buffer=make_smooth_shaded_buff(buffers);
+
 	
 	if(!array_contains(struct_names,"Frame"+frame_number))
 	{
@@ -31,7 +31,7 @@ while (vbuff != "") {
 	vertex_freeze(new_model.vertex_buff);
 	show_debug_message("successful_load: "+string(is_struct(new_model)));
 	struct_set(sub_struct,"models",[new_model]);	
-	if(!array_contains(part_names,new_model.name))
+	if(!array_contains(part_names,new_model.name))and(string_pos("cull",new_model.name)=0)
 	{
 	array_push(part_names,new_model.name);	
 	array_sort(part_names,true);	
@@ -45,7 +45,7 @@ while (vbuff != "") {
 	var new_model=new model_pair(vertex_create_buffer_from_buffer(buffers,buff_form),image_get_texture(struct_get(material_manager.material_struct,"NewMaterial0")),string_letters(sanitize_model_string(vbuff)));
 	show_debug_message("successful_load: "+string(is_struct(new_model)));
 	array_push(sub_struct.models,new_model);
-	if(!array_contains(part_names,new_model.name))
+	if(!array_contains(part_names,new_model.name))and(string_pos("cull",new_model.name)=0)
 	{
 	array_push(part_names,new_model.name);	
 	array_sort(part_names,true);	
