@@ -57,7 +57,8 @@ while (model != "") {
 			buffer_poke(buffers, i + 4, buffer_f32,yy);
 			buffer_poke(buffers, i + 8, buffer_f32,zz);
 			
-			
+			if(string_pos("cull",model)=0)
+			{
 			if(min_x=undefined)
 			{
 			min_y=yy;
@@ -76,6 +77,7 @@ while (model != "") {
 			max_y=max(max_y,yy);
 			min_z=min(zz,min_z);
 			max_z=max(zz,max_z);
+			}
 			}
 			}
 	var export_filename = string_replace(model,".obj",".vbuff");
