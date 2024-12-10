@@ -38,6 +38,8 @@
   "resources":[
     {"id":{"name":"material_manager","path":"objects/material_manager/material_manager.yy",},},
     {"id":{"name":"model_renderer","path":"objects/model_renderer/model_renderer.yy",},},
+    {"id":{"name":"split_checker","path":"objects/split_checker/split_checker.yy",},},
+    {"id":{"name":"sym_checker","path":"objects/sym_checker/sym_checker.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"cross_product_normalized","path":"scripts/cross_product_normalized/cross_product_normalized.yy",},},
     {"id":{"name":"draw_image_stretched","path":"scripts/draw_image_stretched/draw_image_stretched.yy",},},
@@ -56,6 +58,7 @@
     {"id":{"name":"outline_complex","path":"shaders/outline_complex/outline_complex.yy",},},
     {"id":{"name":"outline","path":"shaders/outline/outline.yy",},},
     {"id":{"name":"surface_maker","path":"shaders/surface_maker/surface_maker.yy",},},
+    {"id":{"name":"spr_checkbox","path":"sprites/spr_checkbox/spr_checkbox.yy",},},
     {"id":{"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},},
     {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},
     {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},},

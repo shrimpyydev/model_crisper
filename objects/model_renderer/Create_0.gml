@@ -7,6 +7,8 @@ model_pair = function(vbuff, texture, mod_name) constructor
     tex = texture;
 	name = mod_name;
 	selected = 0;
+	split = 0;
+	sym_tex=0;
 }
 
 population=[];

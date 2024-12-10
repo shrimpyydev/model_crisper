@@ -11,7 +11,7 @@ direction+=1;
 var model_slots=array_length(part_names);
 if(model_slots!=0)
 {
-cursor_position=value_wrap(cursor_position+keyboard_check_pressed(vk_up)-keyboard_check_pressed(vk_down),0,model_slots);	
+cursor_position=value_wrap(cursor_position+keyboard_check_pressed(vk_down)-keyboard_check_pressed(vk_up),0,model_slots);	
 if(keyboard_check_pressed(vk_up)+keyboard_check_pressed(vk_down)!=0)and(part_names[cursor_position]!="aaanull")
 {
 show_debug_message("Now selected: "+part_names[cursor_position]);	
