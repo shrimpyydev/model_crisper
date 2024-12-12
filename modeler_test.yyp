@@ -40,6 +40,7 @@
     {"id":{"name":"model_renderer","path":"objects/model_renderer/model_renderer.yy",},},
     {"id":{"name":"split_checker","path":"objects/split_checker/split_checker.yy",},},
     {"id":{"name":"sym_checker","path":"objects/sym_checker/sym_checker.yy",},},
+    {"id":{"name":"vis_checker","path":"objects/vis_checker/vis_checker.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"cross_product_normalized","path":"scripts/cross_product_normalized/cross_product_normalized.yy",},},
     {"id":{"name":"draw_image_stretched","path":"scripts/draw_image_stretched/draw_image_stretched.yy",},},

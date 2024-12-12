@@ -20,7 +20,7 @@ void main()
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
     
     v_vColour = in_Colour;
-	v_vNormal = rot_mat*normalize(in_Normal);
+	v_vNormal = normalize(rot_mat*normalize(in_Normal));
     v_vTexcoord = in_TextureCoord;
 	z_pos = object_space_pos.z;
 }

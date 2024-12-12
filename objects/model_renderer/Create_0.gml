@@ -9,6 +9,7 @@ model_pair = function(vbuff, texture, mod_name) constructor
 	selected = 0;
 	split = 0;
 	sym_tex=0;
+	is_visable=1;
 }
 
 population=[];
