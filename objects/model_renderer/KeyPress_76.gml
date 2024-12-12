@@ -27,7 +27,7 @@ while (vbuff != "") {
 	
 	
 	
-	var new_model=new model_pair(vertex_create_buffer_from_buffer(smooth_buff,buff_form),image_get_texture(struct_get(material_manager.material_struct,"NewMaterial0")),string_letters(sanitize_model_string(vbuff)));
+	var new_model=new model_pair(vertex_create_buffer_from_buffer(buffers,buff_form),image_get_texture(struct_get(material_manager.material_struct,"NewMaterial0")),string_letters(sanitize_model_string(vbuff)));
 	vertex_freeze(new_model.vertex_buff);
 	show_debug_message("successful_load: "+string(is_struct(new_model)));
 	struct_set(sub_struct,"models",[new_model]);	
@@ -59,6 +59,7 @@ while (vbuff != "") {
 
 
 buffer_delete(buffers);
+buffer_delete(smooth_buff);
 vbuff = file_find_next();
 
 }

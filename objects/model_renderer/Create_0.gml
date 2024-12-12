@@ -11,7 +11,7 @@ model_pair = function(vbuff, texture, mod_name) constructor
 	sym_tex=0;
 	is_visable=1;
 }
-
+show_debug_message("test: "+string(cross_product_normalized([1,0,0],[0,1,0])));
 population=[];
 can_draw=0;
 loaded_model=0;

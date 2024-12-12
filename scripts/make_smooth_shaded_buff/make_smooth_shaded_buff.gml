@@ -22,7 +22,7 @@ for (var i = 0; i < buffer_get_size(smooth_buff); i += 3*36)
 			var y3 = 100*buffer_peek(smooth_buff, i + 4 + 72, buffer_f32);
 			var z3 = 100*buffer_peek(smooth_buff, i + 8 +72, buffer_f32);
 			
-			//show_debug_message("coords: "+string([x1,y1,z1])+", "+string([x2,y2,z3])+", "+string([x3,y3,z3]));
+			//show_debug_message("coords: "+string([x1,y1,z1])+", "+string([x2,y2,z2])+", "+string([x3,y3,z3]));
 			
 			var cross = cross_product_normalized([x2-x1,y2-y1,z2-z1],[x3-x1,y3-y1,z3-z1]);	
 			//show_debug_message("normal: "+string(cross));
@@ -32,16 +32,16 @@ for (var i = 0; i < buffer_get_size(smooth_buff); i += 3*36)
 			
 			buffer_poke(smooth_buff,i+12,buffer_f32,nx);
 			buffer_poke(smooth_buff,i+16,buffer_f32,ny);
-			buffer_poke(smooth_buff,i+20,buffer_f32,nx);
+			buffer_poke(smooth_buff,i+20,buffer_f32,nz);
 			
 			buffer_poke(smooth_buff,i+12+36,buffer_f32,nx);
 			buffer_poke(smooth_buff,i+16+36,buffer_f32,ny);
-			buffer_poke(smooth_buff,i+20+36,buffer_f32,nx);
+			buffer_poke(smooth_buff,i+20+36,buffer_f32,nz);
 			
 			buffer_poke(smooth_buff,i+12+72,buffer_f32,nx);
 			buffer_poke(smooth_buff,i+16+72,buffer_f32,ny);
-			buffer_poke(smooth_buff,i+20+72,buffer_f32,nx);
-		
+			buffer_poke(smooth_buff,i+20+72,buffer_f32,nz);
+					
 }
 
 
@@ -101,7 +101,17 @@ for (i = 0; i < buffer_get_size(smooth_buff); i += 36)
 		
 		
 		}
-math_set_epsilon(0.00001);
+//show_debug_message(string(norm_store));
+
+var coord_string=struct_get_names(norm_store);
+for(i=0; i<array_length(coord_string); i++)
+{
+struct_remove(norm_store,coord_string[i]);	
+	
+	
+	
+}
+
 delete norm_store;
 return smooth_buff;
 

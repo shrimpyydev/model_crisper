@@ -5,7 +5,7 @@ if(model_loaded=1)and(array_length(struct_get_names(frames))!=0)
 {
 current_frame+=0.3;
 current_frame=value_wrap(current_frame,0,array_length(struct_get_names(frames)));
-direction+=1;
+//direction+=1;
 }
 
 var model_slots=array_length(part_names);
