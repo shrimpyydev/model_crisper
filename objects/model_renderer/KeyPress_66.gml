@@ -46,9 +46,9 @@ while (model != "") {
 			var yy = buffer_peek(buffers, i + 4, buffer_f32);
 			var zz = buffer_peek(buffers, i + 8, buffer_f32);
 		
-			xx = scale*xx;
-			yy = scale*yy
-			zz = scale*zz;
+			xx = xx;
+			yy = yy
+			zz = zz;
 		
 			
 			
@@ -100,6 +100,7 @@ min_y : min_y,
 max_y : max_y,
 min_z : min_z,
 max_z : max_z,
+scale : scale,
 	
 };
 var _json_string = json_stringify(model_contraints);

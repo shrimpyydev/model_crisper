@@ -10,17 +10,17 @@ var norm_store={};
 for (var i = 0; i < buffer_get_size(smooth_buff); i += 3*36) 
 		
 		{	
-         	var x1 = 100*buffer_peek(smooth_buff, i + 0, buffer_f32);
-			var y1 = 100*buffer_peek(smooth_buff, i + 4, buffer_f32);
-			var z1 = 100*buffer_peek(smooth_buff, i + 8, buffer_f32);
+         	var x1 = buffer_peek(smooth_buff, i + 0, buffer_f32);
+			var y1 = buffer_peek(smooth_buff, i + 4, buffer_f32);
+			var z1 = buffer_peek(smooth_buff, i + 8, buffer_f32);
 			
-			var x2 = 100*buffer_peek(smooth_buff, i + 0 + 36, buffer_f32);
-			var y2 = 100*buffer_peek(smooth_buff, i + 4 + 36, buffer_f32);
-			var z2 = 100*buffer_peek(smooth_buff, i + 8 +36, buffer_f32);
+			var x2 = buffer_peek(smooth_buff, i + 0 + 36, buffer_f32);
+			var y2 = buffer_peek(smooth_buff, i + 4 + 36, buffer_f32);
+			var z2 = buffer_peek(smooth_buff, i + 8 +36, buffer_f32);
 			
-			var x3 = 100*buffer_peek(smooth_buff, i + 0 + 72, buffer_f32);
-			var y3 = 100*buffer_peek(smooth_buff, i + 4 + 72, buffer_f32);
-			var z3 = 100*buffer_peek(smooth_buff, i + 8 +72, buffer_f32);
+			var x3 = buffer_peek(smooth_buff, i + 0 + 72, buffer_f32);
+			var y3 = buffer_peek(smooth_buff, i + 4 + 72, buffer_f32);
+			var z3 = buffer_peek(smooth_buff, i + 8 +72, buffer_f32);
 			
 			//show_debug_message("coords: "+string([x1,y1,z1])+", "+string([x2,y2,z2])+", "+string([x3,y3,z3]));
 			

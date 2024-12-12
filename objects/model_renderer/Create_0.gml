@@ -20,9 +20,16 @@ vertex_format_begin();
 vertex_format_add_position_3d();
 vertex_format_add_normal();
 vertex_format_add_texcoord();
-vertex_format_add_colour();
-model_loaded=0;
+vertex_format_add_custom(vertex_type_float3,vertex_usage_color);
+
+buff_form_complex = vertex_format_end();
+vertex_format_begin();
+vertex_format_add_position_3d();
+vertex_format_add_normal();
+vertex_format_add_texcoord();
+vertex_format_add_color();
 buff_form = vertex_format_end();
+model_loaded=0;
 active_model=-1;
 model_list={};
 frames={};
