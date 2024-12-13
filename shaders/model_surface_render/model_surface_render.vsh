@@ -13,16 +13,17 @@ uniform vec3 pos;
 varying float z_pos;
 uniform mat4 model_mat;
 uniform float scale;
+varying float z_divide;
 
 void main()
 {
     mat3 rot_mat = mat3(model_mat);
-	vec3 object_space_pos = rot_mat * vec3( in_Position.x, in_Position.y, in_Position.z)+vec3(pos.xyz);
+	vec3 object_space_pos = rot_mat * vec3(scale* in_Position.x,scale* in_Position.y,scale* in_Position.z)+vec3(pos.xyz);
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * vec4(object_space_pos.xyz,1.0);
     
     v_vColour = vec4(1.0,1.0,1.0,1.0);
 	v_vNormal = normalize(rot_mat*normalize(in_Normal));
-	
+	z_divide=in_Position.z;
     v_vTexcoord = in_TextureCoord;
 	z_pos = object_space_pos.z;
 }

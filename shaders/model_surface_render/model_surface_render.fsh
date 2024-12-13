@@ -6,10 +6,23 @@ varying vec4 v_vColour;
 varying vec3 v_vNormal;
 varying float z_pos;
 uniform float selected;
+uniform float sym;
+varying float z_divide;
 void main()
 {
-    
-    
+    vec2 new_tex=v_vTexcoord;
+    if(sym==1.0)
+	{
+	new_tex=new_tex*vec2(0.5,1.0);
+	if(z_divide>0.0)
+	{
+	new_tex=vec2(-1.0*new_tex.x+1.0,new_tex.y);	
+	}
+		
+	}
+	
+	
+	
     float dif = -dot(v_vNormal,normalize(vec3(0.75,-0.5,1.0)));
 	dif = dif * 0.5 +0.5;
 	dif=mix(0.4,1.0,dif);
@@ -26,11 +39,11 @@ void main()
 	
 	if(selected==0.0)
 	{
-	gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord )*vec4(dif,dif,dif,1.0);
+	gl_FragColor = v_vColour * texture2D( gm_BaseTexture, new_tex )*vec4(dif,dif,dif,1.0);
 	}
 	else
 	{
-	gl_FragColor = mix(v_vColour * texture2D( gm_BaseTexture, v_vTexcoord )*vec4(dif,dif,dif,1.0),vec4(0.0,0.0,1.0,1.0),0.25);	
+	gl_FragColor = mix(v_vColour * texture2D( gm_BaseTexture, new_tex )*vec4(dif,dif,dif,1.0),vec4(0.0,0.0,1.0,1.0),0.25);	
 	}
 	//gl_FragColor =(vec4(v_vNormal.xyz,1.0) * vec4(0.5,0.5,-0.5,1.0) + vec4(0.5,0.5,0.5,0.0));
 	}

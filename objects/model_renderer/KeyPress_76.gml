@@ -39,6 +39,7 @@ while (vbuff != "") {
 	vertex_normal(v_buff,nx,ny,nz);
 	vertex_texcoord(v_buff,tx,ty);
 	vertex_float3(v_buff, hnx, hny, hnz);
+	vertex_color(v_buff,c_white,1);
 	}
 	vertex_end(v_buff);
 	
