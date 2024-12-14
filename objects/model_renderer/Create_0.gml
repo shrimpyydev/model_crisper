@@ -10,6 +10,7 @@ model_pair = function(vbuff, texture, mod_name) constructor
 	split = 0;
 	sym_tex=0;
 	is_visable=1;
+	color_override=0;
 }
 show_debug_message("test: "+string(cross_product_normalized([1,0,0],[0,1,0])));
 meter_scale=3*1.26880071899;
@@ -24,7 +25,7 @@ vertex_format_add_position_3d();
 vertex_format_add_normal();
 vertex_format_add_texcoord();
 vertex_format_add_custom(vertex_type_float3,vertex_usage_color);
-vertex_format_add_color();
+vertex_format_add_custom(vertex_type_color,vertex_usage_color);
 buff_form_complex = vertex_format_end();
 vertex_format_begin();
 vertex_format_add_position_3d();

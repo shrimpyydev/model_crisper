@@ -48,6 +48,7 @@
     {"id":{"name":"import_obj_optimized","path":"scripts/import_obj_optimized/import_obj_optimized.yy",},},
     {"id":{"name":"make_smooth_shaded_buff","path":"scripts/make_smooth_shaded_buff/make_smooth_shaded_buff.yy",},},
     {"id":{"name":"render_model_struct","path":"scripts/render_model_struct/render_model_struct.yy",},},
+    {"id":{"name":"rgba_to_u32","path":"scripts/rgba_to_u32/rgba_to_u32.yy",},},
     {"id":{"name":"sanitize_model_string","path":"scripts/sanitize_model_string/sanitize_model_string.yy",},},
     {"id":{"name":"stringify_coordinates","path":"scripts/stringify_coordinates/stringify_coordinates.yy",},},
     {"id":{"name":"value_wrap","path":"scripts/value_wrap/value_wrap.yy",},},

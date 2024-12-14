@@ -8,6 +8,7 @@ varying float z_pos;
 uniform float selected;
 uniform float sym;
 varying float z_divide;
+uniform float color_override;
 void main()
 {
     vec2 new_tex=v_vTexcoord;
@@ -39,11 +40,11 @@ void main()
 	
 	if(selected==0.0)
 	{
-	gl_FragColor = v_vColour * texture2D( gm_BaseTexture, new_tex )*vec4(dif,dif,dif,1.0);
+	gl_FragColor = mix(texture2D( gm_BaseTexture, new_tex ),v_vColour,color_override)*vec4(dif,dif,dif,1.0);
 	}
 	else
 	{
-	gl_FragColor = mix(v_vColour * texture2D( gm_BaseTexture, new_tex )*vec4(dif,dif,dif,1.0),vec4(0.0,0.0,1.0,1.0),0.25);	
+	gl_FragColor = mix(mix(texture2D( gm_BaseTexture, new_tex ),v_vColour,color_override)*vec4(dif,dif,dif,1.0),vec4(0.0,0.0,1.0,1.0),0.25);	
 	}
 	//gl_FragColor =(vec4(v_vNormal.xyz,1.0) * vec4(0.5,0.5,-0.5,1.0) + vec4(0.5,0.5,0.5,0.0));
 	}

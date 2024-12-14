@@ -51,7 +51,16 @@ surface_reset_target();
 
 
 draw_surface_ext(model_surface,room_width/2-surface_get_width(model_surface)/2*surface_scale,room_height/2-surface_get_height(model_surface)/2*surface_scale,surface_scale,surface_scale,0,c_white,1);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_text_color(1+room_width/2,surface_scale*surface_get_height(model_surface)+(room_height/2-surface_get_height(model_surface)/2*surface_scale+16),"direction: "+string(direction),c_black,c_black,c_black,c_black,1);
+draw_text_color(room_width/2-1,surface_scale*surface_get_height(model_surface)+(room_height/2-surface_get_height(model_surface)/2*surface_scale+16),"direction: "+string(direction),c_black,c_black,c_black,c_black,1);
+draw_text_color(1+room_width/2,1+surface_scale*surface_get_height(model_surface)+(room_height/2-surface_get_height(model_surface)/2*surface_scale+16),"direction: "+string(direction),c_black,c_black,c_black,c_black,1);
+draw_text_color(1+room_width/2,-1+surface_scale*surface_get_height(model_surface)+(room_height/2-surface_get_height(model_surface)/2*surface_scale+16),"direction: "+string(direction),c_black,c_black,c_black,c_black,1);
 
+
+
+draw_text_color(room_width/2,surface_scale*surface_get_height(model_surface)+(room_height/2-surface_get_height(model_surface)/2*surface_scale+16),"direction: "+string(direction),c_white,c_white,c_white,c_white,1);
 
 
 }

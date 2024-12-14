@@ -9,6 +9,7 @@ shader_set_uniform_f_array(shader_get_uniform(model_surface_render,"model_mat"),
 shader_set_uniform_f(shader_get_uniform(model_surface_render,"selected"),struct.selected);
 shader_set_uniform_f(shader_get_uniform(model_surface_render,"scale"),model_constraints.scale);
 shader_set_uniform_f(shader_get_uniform(model_surface_render,"sym"),struct.sym_tex);
+shader_set_uniform_f(shader_get_uniform(model_surface_render,"color_override"),struct.color_override);
 vertex_submit(struct.vertex_buff,pr_trianglelist,struct.tex);
 shader_reset();	
 	
