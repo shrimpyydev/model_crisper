@@ -25,7 +25,7 @@ vertex_format_add_position_3d();
 vertex_format_add_normal();
 vertex_format_add_texcoord();
 vertex_format_add_custom(vertex_type_float3,vertex_usage_color);
-vertex_format_add_custom(vertex_type_color,vertex_usage_color);
+vertex_format_add_custom(vertex_type_float4,vertex_usage_textcoord);
 buff_form_complex = vertex_format_end();
 vertex_format_begin();
 vertex_format_add_position_3d();

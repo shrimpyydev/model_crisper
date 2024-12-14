@@ -39,7 +39,7 @@ while (vbuff != "") {
 	vertex_normal(v_buff,nx,ny,nz);
 	vertex_texcoord(v_buff,tx,ty);
 	vertex_float3(v_buff, hnx, hny, hnz);
-	vertex_color(v_buff,c_white,1);
+	vertex_float4(v_buff,1,1,1,1);
 	}
 	vertex_end(v_buff);
 	
@@ -57,7 +57,7 @@ while (vbuff != "") {
 	
 	
 	var new_model=new model_pair(v_buff,image_get_texture(struct_get(material_manager.material_struct,"NewMaterial0")),string_letters(sanitize_model_string(vbuff)));
-	vertex_freeze(new_model.vertex_buff);
+	//vertex_freeze(new_model.vertex_buff);
 	show_debug_message("successful_load: "+string(is_struct(new_model)));
 	struct_set(sub_struct,"models",[new_model]);	
 	if(!array_contains(part_names,new_model.name))and(string_pos("cull",new_model.name)=0)

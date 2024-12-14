@@ -1,6 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+if(keyboard_check_pressed(ord("X"))and(keyboard_check(vk_control))
+{
+event_perform(ev_other,ev_user0);	
+	
+	
+	
+}
 
 if(model_loaded=1)
 {
@@ -8,7 +14,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 draw_text_transformed_color(room_width/2,room_height*0.1,"Frame "+string(floor(current_frame))+" of "+string(array_length(struct_get_names(frames))-1),3,3,0,c_red,c_red,c_red,c_red,1);
 var selectable_text="selected:\n-> "
-for(var i=0; i<array_length(part_names); i++)
+for(var i=0; i<min(3,array_length(part_names)); i++)
 {
 selectable_text=selectable_text+part_names[value_wrap(i+cursor_position,0,array_length(part_names))]+"; \n";
 
