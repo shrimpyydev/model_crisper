@@ -11,7 +11,24 @@ if(i=0)
 {
 var sav=get_save_filename("PNG files|*.png", "output.png");
 }
-surface_save(model_surface,sav);
+if (draw_cursor=0) {
+    surface_save(model_surface,sav);
+} else if (draw_cursor=1) {
+    surface_save(norm_surf,sav);
+} else if (draw_cursor=2) {
+    surface_save(tex_surf,sav);
+} else if (draw_cursor=4) {
+    surface_save(outline_surf,sav);
+} else if (draw_cursor=5) {
+    surface_save(outline_surf_buffer,sav);
+}
+
+
+
+
+
+
+//surface_save(model_surface,sav);
 var export_path=filename_path(sav);
 var export_name=filename_name(sav);
 

@@ -16,10 +16,16 @@ if(array_struct.name=model_renderer.part_names[model_renderer.cursor_position])
 {
 if(mouse_check_button_pressed(mb_left))and(point_in_rectangle(mouse_x,mouse_y,x,y,x+sprite_width,y+sprite_height))
 {
-array_struct.split=1-array_struct.split;	
+array_struct.cull_direction=array_struct.cull_direction+1;
+if(array_struct.cull_direction=3)
+{
+array_struct.cull_direction=0;	
 }
 
-image_index=array_struct.split;	
+
+}
+
+cull_string=string(array_struct.cull_direction);
 }
 	
 	
@@ -28,7 +34,7 @@ image_index=array_struct.split;
 }
 if(model_renderer.part_names[model_renderer.cursor_position]="aaanull")
 {
-image_index=0;	
+cull_string="0";	
 }
 	
 	

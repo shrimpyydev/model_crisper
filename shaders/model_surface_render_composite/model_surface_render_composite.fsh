@@ -62,17 +62,17 @@ void main()
 	if(selected==0.0)
 	{
 	
-	gl_FragData[0] = texture2D( gm_BaseTexture, new_tex );
+	gl_FragData[0] = mix(texture2D( gm_BaseTexture, new_tex ),v_vColour,color_override)*vec4(dif,dif,dif,1.0);
 	}
 	else
 	{
-	gl_FragData[0] = mix(texture2D( gm_BaseTexture, new_tex ),vec4(0.0,0.0,1.0,1.0),0.25);	
+	gl_FragData[0] = mix(mix(texture2D( gm_BaseTexture, new_tex ),v_vColour,color_override)*vec4(dif,dif,dif,1.0),vec4(0.0,0.0,1.0,1.0),0.25);	
 	}
 	
 	
-	
+	//gl_FragData[0] = texture2D( gm_BaseTexture, new_tex );
 	gl_FragData[1] =(vec4(v_vNormal.xyz,1.0) * vec4(0.5,0.5,-0.5,1.0) + vec4(0.5,0.5,0.5,0.0));
-	gl_FragData[2] = vec4(new_tex.x,new_tex.y,shade,1.0);
+	gl_FragData[2] = vec4(new_tex.x,new_tex.y,1.0-shade,1.0);
 	
 	gl_FragData[3] = vec4(z_pos,z_pos,z_pos,texture2D( gm_BaseTexture, new_tex ).a);
 	

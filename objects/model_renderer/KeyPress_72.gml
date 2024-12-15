@@ -12,6 +12,10 @@ surf_width=ceil(2*sqrt(sqr(true_max_x)+sqr(true_max_z)));
 surf_height=ceil(model_constraints.scale*abs(model_constraints.max_y-model_constraints.min_y));
 
 surface_resize(model_surface,2+surf_width,2+surf_height);
+surface_resize(tex_surf,2+surf_width,2+surf_height);
+surface_resize(norm_surf,2+surf_width,2+surf_height);
+surface_resize(height_surf,2+surf_width,2+surf_height);
+surface_resize(outline_surf,2+surf_width,2+surf_height);
 
 
 

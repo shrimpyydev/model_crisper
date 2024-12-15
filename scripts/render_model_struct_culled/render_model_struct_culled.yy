@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"render_model_struct_culled",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"render_model_struct_culled",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

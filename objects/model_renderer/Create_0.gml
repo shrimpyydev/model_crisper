@@ -11,6 +11,7 @@ model_pair = function(vbuff, texture, mod_name) constructor
 	sym_tex=0;
 	is_visable=1;
 	color_override=0;
+	cull_direction=0;
 }
 show_debug_message("test: "+string(cross_product_normalized([1,0,0],[0,1,0])));
 meter_scale=3*1.26880071899;
@@ -41,6 +42,15 @@ surface_scale=3;
 model_surface=-1;
 model_constraints=undefined;
 cursor_position=0;
+tex_surf=-1;
+norm_surf=-1;
+height_surf=-1;
+outline_surf=-1;
+draw_mode=["diffuse","normal","texture","height","outline","composite"]
+draw_cursor=0;
+
+
+
 
 part_names=["aaanull"];
 //show_debug_message(string(cross_product_normalized([0,0,1],[0,1,0])));

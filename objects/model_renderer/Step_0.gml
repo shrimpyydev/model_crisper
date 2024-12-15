@@ -1,6 +1,23 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (keyboard_check_pressed(ord("1")) || keyboard_check_pressed(vk_numpad1)) {
+    draw_cursor = 0;
+} else if (keyboard_check_pressed(ord("2")) || keyboard_check_pressed(vk_numpad2)) {
+    draw_cursor = 1;
+} else if (keyboard_check_pressed(ord("3")) || keyboard_check_pressed(vk_numpad3)) {
+    draw_cursor = 2;
+} else if (keyboard_check_pressed(ord("4")) || keyboard_check_pressed(vk_numpad4)) {
+    draw_cursor = 3;
+} else if (keyboard_check_pressed(ord("5")) || keyboard_check_pressed(vk_numpad5)) {
+    draw_cursor = 4;
+} else if (keyboard_check_pressed(ord("6")) || keyboard_check_pressed(vk_numpad6)) {
+    draw_cursor = 5;
+}
+
+
+
+
 if(model_loaded=1)and(array_length(struct_get_names(frames))!=0)
 {
 current_frame+=0.3;

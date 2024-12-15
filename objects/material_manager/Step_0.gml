@@ -8,6 +8,7 @@ if(filename_path(prompt)!="")
 {
 tex_import=sprite_add(prompt,0,0,0,0,0);	
 struct_set(material_struct,"NewMaterial"+string(array_length(population)),tex_import);
+show_debug_message(string(texture_get_uvs(image_get_texture(tex_import))));
 }
 
 
