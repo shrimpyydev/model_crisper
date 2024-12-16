@@ -13,6 +13,8 @@ if (keyboard_check_pressed(ord("1")) || keyboard_check_pressed(vk_numpad1)) {
     draw_cursor = 4;
 } else if (keyboard_check_pressed(ord("6")) || keyboard_check_pressed(vk_numpad6)) {
     draw_cursor = 5;
+} else if (keyboard_check_pressed(ord("7")) || keyboard_check_pressed(vk_numpad7)) {
+    draw_cursor = 6;
 }
 
 

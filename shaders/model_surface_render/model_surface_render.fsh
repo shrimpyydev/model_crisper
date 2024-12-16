@@ -17,14 +17,14 @@ void main()
 	
 	if(cull_mode==1.0)
 	{
-	if(z_pos<0.0)
+	if(z_pos<=0.0)
 	{
 	discard;
 	}
 	}
 	if(cull_mode==2.0)
 	{
-	if(z_pos>0.0)
+	if(z_pos>=0.0)
 	{
 	discard;
 	}
@@ -68,11 +68,11 @@ void main()
 	{
 	gl_FragData[0] = mix(texture2D( gm_BaseTexture, new_tex ),vec4(0.0,0.0,1.0,1.0),0.25);	
 	}
-	
+	float height=(clamp(z_pos,-127.0,128.0)+127.0)/255.0;
 	
 	
 	gl_FragData[1] =(vec4(v_vNormal.xyz,1.0) * vec4(0.5,0.5,-0.5,1.0) + vec4(0.5,0.5,0.5,0.0));
-	gl_FragData[2] = vec4(new_tex.x,new_tex.y,shade,1.0);
+	gl_FragData[2] = vec4(new_tex.x,new_tex.y,height,1.0);
 	
 	gl_FragData[3] = vec4(z_pos,z_pos,z_pos,texture2D( gm_BaseTexture, new_tex ).a);
 	

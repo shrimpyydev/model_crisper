@@ -144,6 +144,18 @@ draw_surface_ext(outline_surf_buffer,room_width/2-surface_get_width(model_surfac
 	
 	
 }
+else if(draw_cursor=6)
+{
+gpu_set_ztestenable(0);
+gpu_set_zwriteenable(0);
+surface_set_target(model_surface);
+draw_surface(outline_surf,0,0);
+surface_reset_target();
+	
+draw_surface_ext(model_surface,room_width/2-surface_get_width(model_surface)/2*surface_scale,room_height/2-surface_get_height(model_surface)/2*surface_scale,surface_scale,surface_scale,0,c_white,1);
+	
+}
+
 
 
 

@@ -12,22 +12,22 @@ uniform sampler2D diffuse;
 
 void main()
 {
-   /*
+   
    if(cull_mode==1.0)
 	{
-	if(z_pos-v_vNormal.z<0.0)
+	if(z_pos-v_vNormal.z<=0.0)
 	{
 	discard;
 	}
 	}
 	if(cull_mode==2.0)
 	{
-	if(z_pos-v_vNormal.z>0.0)
+	if(z_pos-v_vNormal.z>=0.0)
 	{
 	discard;
 	}
 	}
-	*/	
+		
 	
   
    float cull=v_vNormal.z;

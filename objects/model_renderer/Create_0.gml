@@ -46,7 +46,7 @@ tex_surf=-1;
 norm_surf=-1;
 height_surf=-1;
 outline_surf=-1;
-draw_mode=["diffuse","normal","texture","height","outline","composite"]
+draw_mode=["diffuse","normal","texture","height","outline","composite","composite diffuse"]
 draw_cursor=0;
 
 

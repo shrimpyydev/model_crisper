@@ -16,6 +16,7 @@ surface_resize(tex_surf,2+surf_width,2+surf_height);
 surface_resize(norm_surf,2+surf_width,2+surf_height);
 surface_resize(height_surf,2+surf_width,2+surf_height);
 surface_resize(outline_surf,2+surf_width,2+surf_height);
+surface_resize(outline_surf_buffer,2+surf_width,2+surf_height);
 
 
 

@@ -21,6 +21,8 @@ if (draw_cursor=0) {
     surface_save(outline_surf,sav);
 } else if (draw_cursor=5) {
     surface_save(outline_surf_buffer,sav);
+}else if (draw_cursor=6) {
+    surface_save(model_surface,sav);
 }
 
 
