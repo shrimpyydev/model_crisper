@@ -1,7 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function render_model_struct_culled(struct){
-if(struct.is_visable=1)	
+if(struct.is_visable=1)
 {
 
 
@@ -18,7 +18,8 @@ vertex_submit(struct.vertex_buff,pr_trianglelist,struct.tex);
 shader_reset();	
 
 
-
+if(struct.exempt_outline=0)
+{
 shader_set(model_surface_render_cull);
 var sampler_other = shader_get_sampler_index(model_surface_render_cull, "height_map");
 texture_set_stage(sampler_other, surface_get_texture(height_surf));
@@ -32,7 +33,7 @@ shader_set_uniform_f(shader_get_uniform(model_surface_render_cull,"scale"),model
 shader_set_uniform_f(shader_get_uniform(model_surface_render_cull,"cull_mode"),struct.cull_direction);
 vertex_submit(struct.vertex_buff,pr_trianglelist,struct.tex);
 shader_reset();	
-
+}
 
 	
 }

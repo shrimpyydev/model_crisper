@@ -15,6 +15,8 @@ if (keyboard_check_pressed(ord("1")) || keyboard_check_pressed(vk_numpad1)) {
     draw_cursor = 5;
 } else if (keyboard_check_pressed(ord("7")) || keyboard_check_pressed(vk_numpad7)) {
     draw_cursor = 6;
+} else if (keyboard_check_pressed(ord("8")) || keyboard_check_pressed(vk_numpad8)) {
+    draw_cursor = 7;
 }
 
 
@@ -22,7 +24,7 @@ if (keyboard_check_pressed(ord("1")) || keyboard_check_pressed(vk_numpad1)) {
 
 if(model_loaded=1)and(array_length(struct_get_names(frames))!=0)
 {
-current_frame+=0.3;
+current_frame+=0.15;
 current_frame=value_wrap(current_frame,0,array_length(struct_get_names(frames)));
 direction+=22.5*(keyboard_check_pressed(vk_right)-keyboard_check_pressed(vk_left));
 }
